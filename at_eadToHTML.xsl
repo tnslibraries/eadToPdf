@@ -3,7 +3,7 @@
     <!--
         *******************************************************************
         *                                                                 *
-        * VERSION:          1.02                                          *
+        * VERSION:          2.00                                          *
         *                                                                 *
         * AUTHOR:           Winona Salesky                                *
         *                   wsalesky@gmail.com                            *
@@ -14,6 +14,11 @@
         *                  this file calls lookupLists.xsl, which         *
         *                  should be located in the same folder.          *
         *                                                                 *
+        * UPDATED          Mar. 8, 2016 AJ                                *
+        *                  Comlpete rewrite of javascript and             *
+        *                  Foundation Styles                              *
+        *                                                                 *
+        *                  Changed ask us link to digital collections     *
         * UPDATED          Dec. 12, 2015 LH                               *
         *                  Changed links containing /speccoll/ in URL to  *
         *                  /archives/                                     *
