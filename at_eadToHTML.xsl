@@ -401,7 +401,7 @@
                             <xsl:choose>
                                 <xsl:when test="ead:head">
                                     <xsl:value-of select="ead:head"/></xsl:when>
-                                <xsl:otherwise>Other Collection Guides s</xsl:otherwise>
+                                <xsl:otherwise>Other Collection Guides</xsl:otherwise>
                             </xsl:choose>
                         </a>
                     </dt>   
