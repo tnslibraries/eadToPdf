@@ -78,8 +78,9 @@
             </head>
             <body>
               <!-- ADDED BANNER AJ 4/31 -->
-              <xsl:call-template name="banner"/>
-              
+               
+<xsl:call-template name="banner"/>
+<xsl:call-template name="nav1"/>
               
               <!-- END BANNER AJ 4/31 -->  
                 
@@ -2236,96 +2237,49 @@
     </xsl:template>
     
     <xsl:template name="banner">
-            <div id="banner">
-                <img src="http://www.newschool.edu/uploadedImages/Marketing_and_Communication/documents/logos/email/TNS_Logo1_Small_RGB.jpg"/>
-               <a name="N10000">&#160;</a>
-            </div>
+<div id="banner">
+  <div id="site_lockup">
+
+              <h1 class="u_name">
+            <a href="http://www.newschool.edu/">
+              <span class="font-width-1">T</span><span class="font-width-3">h</span><span class="font-width-1">e</span><span class="font-width-1">&#160;</span><span class="font-width-2">N</span><span class="font-width-1">e</span><span class="font-width-3">w</span><span class="font-width-1">&#160;</span><span class="font-width-1">S</span><span class="font-width-1">c</span><span class="font-width-3">h</span><span class="font-width-2">o</span><span class="font-width-2">o</span><span class="font-width-3">l</span>
+            </a>
+          </h1>
+
+          <div class="bottom-stripe" id="stripe-1"><div class="bottom-stripe-inner">&#160;</div></div>
+          <div class="bottom-stripe" id="stripe-2"><div class="bottom-stripe-inner">&#160;</div></div>
+
+          <h1 class="sitename">
+<a href="http://library.newschool.edu">Libraries <span class="hide-for-small-only"><xsl:text disable-output-escaping="yes">&amp;</xsl:text> Archives</span><span class="show-for-small-only mobile-logo"><br /><xsl:text disable-output-escaping="yes">&amp;</xsl:text> Archives</span></a>
+</h1>
+
+  </div>
+  <a name="N10000">&#160;</a>
+</div>
     </xsl:template>
     
   <xsl:template name="nav1">   
     <div id="nav1">
-                <ul class="floatLeft">
-                <li>
-                <a href="http://library.newschool.edu">New School Libraries and Archives</a> &gt;</li>
-                    <li> <a href="http://library.newschool.edu/archives/"> Archives and Special Collections</a> &gt;</li>
-                <li> <xsl:value-of select="/ead:ead/ead:archdesc/ead:did/ead:unittitle"/>, <xsl:value-of select="/ead:ead/ead:archdesc/ead:did/ead:unitdate[@type='inclusive']"/></li>
-                </ul>
-    </div>
+  <div id="page_info" class="" >
+     <div class="inner-wrapper" id="">
+        <ul class="breadcrumbs"> 
+          <!-- RENDER BREADCRUMBS HERE --> 
+          <li><a href="http://library.newschool.edu" title="The New School Libraries">Home</a></li>
+          <li><a href="http://library.newschool.edu/archives/index.php" title="Archives">Archives <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Special Collections</a></li>
+          <li class=""><a href="http://library.newschool.edu/archives/browse_collections.php">Browse the Collections</a></li>
+          <li class="unavailable">
+          <a href="">Collection Guide</a></li>
+
+          </ul>
+        <div class="hide-for-small">
+          <div id='pageheading'>
+            <h2>Collection Guide</h2>
+          </div>
+</div>
+</div>
+</div>
+</div>
   </xsl:template>
-
-<xsl:template name="google">
-<script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-7966352-4']);
-_gaq.push(['_trackPageview']);
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-
-ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script> 
-    <!-- 6/9/12 WS: New jquery script to show/hide layers and show/hide all layers -->
-    <script type="text/javascript">
-           //<![CDATA[
-              $(document).ready(function() {
-              var showText='More...';
-              var hideText='Less...';
-                  $('.more').hide();
-                  $('.showLink').click( function() {
-                    var target = this.id + '-show';
-                    var linkid = this.id;
-                    // Use ID-selectors to toggle a single element.
-                    $('#' + target).toggle();
-                    $(this).text($(this).text() == 'More...' ? 'Less..' : 'More...');
-                    return false;
-                  });
-                  
-                  $('.showAll').click(function() {
-                       $(this).text($(this).text() == '+ Expand all text to enable full keyword searching ' ? '- Hide expanded text to allow for faster scrolling' : '+ Expand all text to enable full keyword searching ');
-                       if ($(this).text() == '+ Expand all text to enable full keyword searching ')
-                       {
-                           $('.showLink').text('More');
-                           $('.more').hide();
-                       }
-                       else
-                       {
-                           $('.showLink').text('Less');
-                           $('.more').show();
-                       }
-                     });
-              });
-              //]]>
-    </script>
-    <script type="text/javascript">
-            <xsl:text disable-output-escaping="yes">
-                $(function () {
-                
-                var msie6 = $.browser == 'msie' &amp;&amp; $.browser.version &lt; 7;
-                
-                if (!msie6) {
-                var top = $('#toc').offset().top - parseFloat($('#toc').css('margin-top').replace(/auto/, 0));
-                $(window).scroll(function (event) {
-                // what the y position of the scroll is
-                var y = $(this).scrollTop();
-                
-                // whether that's below the form
-                if (y >= top) {
-                // if so, ad the fixed class
-                $('#toc').addClass('fixed');
-                } else {
-                // otherwise remove it
-                $('#toc').removeClass('fixed');
-                }
-                });
-                }  
-                });
-                    
-    
-        </xsl:text>
-        </script>
-</xsl:template>
     
     <!-- borrowed from http://geekswithblogs.net/Erik/archive/2008/04/01/120915.aspx. I would normally use replace in xslt 2.0, but...
         #  text         : main string you are parsing
