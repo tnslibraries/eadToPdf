@@ -168,11 +168,13 @@
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:dsc"/>    
                         </xsl:if>
                         <p class="footerText">Collection guide Last Updated:  <xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 6 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 9 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 1 ,4)"/></p>
-                        <p class="footerText">Copyright &#169; 2010  Kellen Design Archives, The New School. All rights reserved.</p>
-                        <p class="footerText">Archivist Toolkit at_eadToHTML stylesheet Version 1.01</p> 
+                        <p class="footerText">Copyright &#169; 2016 Libraries &amp; Archives, The New School. All rights reserved.</p>
+                        <p class="footerText">Archivist Toolkit at_eadToHTML stylesheet Version 2.00</p> 
                     </div>
                     </div>    
                 </div>
+
+                <xsl:call-template name="footer"/>
             </body>
         </html>
     </xsl:template>
@@ -2280,6 +2282,15 @@
 </div>
 </div>
   </xsl:template>
+
+          <xsl:template name="footer">
+<div id="footer-wrapper"><div id="universal_footer_interim"></div></div>
+<script type="text/javascript">
+    $.getJSON( "http://www.newschool.edu/php/footer.php?v=absolute<xsl:text disable-output-escaping="yes">&amp;</xsl:text>callback=?", function(data) {
+          $("#footer-wrapper").html(data.html);
+      });
+</script> 
+    </xsl:template>
     
     <!-- borrowed from http://geekswithblogs.net/Erik/archive/2008/04/01/120915.aspx. I would normally use replace in xslt 2.0, but...
         #  text         : main string you are parsing
