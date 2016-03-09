@@ -74,12 +74,12 @@
                 </title>
                 <xsl:call-template name="metadata"/>
                 <xsl:call-template name="css"/>
-                <xsl:call-template name="google"/>
+                <xsl:call-template name="js"/>
             </head>
             <body>
               <!-- ADDED BANNER AJ 4/31 -->
               <xsl:call-template name="banner"/>
-              <xsl:call-template name="nav1"/>
+              
               
               <!-- END BANNER AJ 4/31 -->  
                 
@@ -178,12 +178,87 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <!--<link href="at.css" rel="stylesheet" media="screen" type="text/css"/>-->
-        <link href="http://library.newschool.edu/styles/at.css" rel="stylesheet" media="screen" type="text/css"/>
-        <link href="http://library.newschool.edu/styles/at_print.css" rel="stylesheet" media="print" type="text/css"/>
-        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>-->
-        <script type="text/javascript" src="http://library.newschool.edu/scripts/jquery.js"></script>
+        <link rel="stylesheet" media="screen" type="text/css" href="http://library.newschool.edu/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="http://library.newschool.edu/archives/assets/css/at_print.css" />
+        <link rel="icon" href="http://library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="http://library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
     </xsl:template>
+
+     <xsl:template name="js">
+
+<script src="//use.typekit.net/wnv5wjy.js">&#160;</script>
+<script>try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js">&#160;</script>
+<script src="scripts/jquery.js" type="text/javascript" >&#160;</script>
+<script type="text/javascript">
+    <![CDATA[
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    ]]>
+</script>
+
+
+ <!-- 6/9/12 WS: New jquery script to show/hide layers and show/hide all layers -->
+    <script type="text/javascript">
+           //<![CDATA[
+              $(document).ready(function() {
+              var showText='More...';
+              var hideText='Less...';
+                  $('.more').hide();
+                  $('.showLink').click( function() {
+                    var target = this.id + '-show';
+                    var linkid = this.id;
+                    // Use ID-selectors to toggle a single element.
+                    $('#' + target).toggle();
+                    $(this).text($(this).text() == 'More...' ? 'Less..' : 'More...');
+                    return false;
+                  });
+                  
+                  $('.showAll').click(function() {
+                       $(this).text($(this).text() == '+ Expand all text to enable full keyword searching ' ? '- Hide expanded text to allow for faster scrolling' : '+ Expand all text to enable full keyword searching ');
+                       if ($(this).text() == '+ Expand all text to enable full keyword searching ')
+                       {
+                           $('.showLink').text('More');
+                           $('.more').hide();
+                       }
+                       else
+                       {
+                           $('.showLink').text('Less');
+                           $('.more').show();
+                       }
+                     });
+              });
+              //]]>
+    </script>
+    <script type="text/javascript">
+            <xsl:text disable-output-escaping="yes">
+                $(function () {
+                
+                var msie6 = $.browser == 'msie' &amp;&amp; $.browser.version &lt; 7;
+                
+                if (!msie6) {
+                var top = $('#toc').offset().top - parseFloat($('#toc').css('margin-top').replace(/auto/, 0));
+                $(window).scroll(function (event) {
+                // what the y position of the scroll is
+                var y = $(this).scrollTop();
+                
+                // whether that's below the form
+                if (y >= top) {
+                // if so, ad the fixed class
+                $('#toc').addClass('fixed');
+                } else {
+                // otherwise remove it
+                $('#toc').removeClass('fixed');
+                }
+                });
+                }  
+                });
+                    
+    
+        </xsl:text>
+        </script>
+
+         </xsl:template>  
 
     <!-- This template creates a customizable header  -->
     <xsl:template name="header">
