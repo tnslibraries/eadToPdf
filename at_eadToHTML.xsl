@@ -504,7 +504,7 @@ color: #000000;
             <p>&#160;</p>
             <p><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                <img src="http://library.newschool.edu/archives/assets/images/pdficon_small.gif" align="absmiddle" border="0"/> printable version (PDF)</a></p>
+                <img src="http://beta.library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> printable version (PDF)</a></p>
             <p>Questions? <a href="http://digitalarchives.library.newschool.edu/index.php/Contact/Form">Click here to contact us</a></p>
         </div>
     </xsl:template> 
