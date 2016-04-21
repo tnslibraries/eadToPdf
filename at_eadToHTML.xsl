@@ -181,18 +181,22 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <link rel="stylesheet" media="screen" type="text/css" href="http://library.newschool.edu/archives/assets/css/at_branding.css" />
-        <link type="text/css" media="print" rel="stylesheet" href="http://library.newschool.edu/archives/assets/css/at_print.css" />
-        <link rel="icon" href="http://library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
-        <link rel="stylesheet" href="http://library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
+        <link rel="stylesheet" media="screen" type="text/css" href="http://beta.library.newschool.edu/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="http://beta.library.newschool.edu/archives/assets/css/at_print.css" />
+        <link rel="icon" href="http://beta.library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="http://beta.library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
 
 <style>
 .series {
 font-weight: bold;
 color: #000000;
 }
-.collectionNote {
-    margin-left:15px;
+.seriesNote {
+    margin-left:20px;
+}
+.containerHeader {text-align:left;}
+.collection {
+    font-weight:700;
 }
 </style>
 
@@ -504,7 +508,7 @@ color: #000000;
             <p>&#160;</p>
             <p><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                <img src="http://beta.library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> printable version (PDF)</a></p>
+                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> printable version (PDF)</a></p>
             <p>Questions? <a href="http://digitalarchives.library.newschool.edu/index.php/Contact/Form">Click here to contact us</a></p>
         </div>
     </xsl:template> 
@@ -536,9 +540,9 @@ color: #000000;
                   <div>
                       <a href="#" class="showAll" style="border:1px solid #000; padding:.5em; font-weight:bold;color:blue">+ Expand all text to enable full keyword searching </a>
                   </div>
-                  <h2 id="{generate-id(ead:filedesc/ead:titlestmt/ead:titleproper)}">
+                  <h2 id="{generate-id(ead:filedesc/ead:titlestmt/ead:titleproper)}"><b>
                     Guide to the <xsl:apply-templates select="ead:filedesc/ead:titlestmt/ead:titleproper"/>
-                  </h2>                  
+                 </b> </h2>                  
               </xsl:otherwise>
           </xsl:choose>
         <!-- print subtitle if it exists -->
@@ -791,7 +795,7 @@ color: #000000;
     </xsl:template>
     <!-- Templates for revision description  -->
     <xsl:template match="/ead:ead/ead:eadheader/ead:revisiondesc">
-        <h4>Revision Description</h4>
+        <h3>Revision Description</h3>
         <p><xsl:if test="ead:change/ead:item"><xsl:apply-templates select="ead:change/ead:item"/></xsl:if><xsl:if test="ead:change/ead:date">&#160;<xsl:apply-templates select="ead:change/ead:date"/></xsl:if></p>        
     </xsl:template>
     
@@ -808,67 +812,67 @@ color: #000000;
             </xsl:otherwise>
         </xsl:choose>
         <xsl:if test="ead:corpname">
-            <h4>Corporate Name(s)</h4>
-            <ul class="small-push-1 margin-bottom">
+            <h3>Corporate Name(s)</h3>
+            <ul class="margin-bottom">
                 <xsl:for-each select="ead:corpname">
-                    <li><xsl:apply-templates/> </li>
+                    <li style="margin-left:20px"><xsl:apply-templates/></li>
                 </xsl:for-each>
             </ul>            
         </xsl:if>
         <xsl:if test="ead:famname">
-            <h4>Family Name(s)</h4>
-            <ul class="small-push-1 margin-bottom ">
+            <h3>Family Name(s)</h3>
+            <ul class="margin-bottom ">
                 <xsl:for-each select="ead:famname">
-                    <li><xsl:apply-templates/> </li>
+                    <li style="margin-left:20px"><xsl:apply-templates/> </li>
                 </xsl:for-each>                        
             </ul>
         </xsl:if>
         <xsl:if test="ead:function">
-            <h4>Function(s)</h4>
-            <ul class="small-push-1 margin-bottom ">
+            <h3>Function(s)</h3>
+            <ul class="margin-bottom ">
                 <xsl:for-each select="ead:function">
-                    <li><xsl:apply-templates/> </li>
+                    <li style="margin-left:20px"><xsl:apply-templates/></li>
                 </xsl:for-each>                        
             </ul>
         </xsl:if>
         <xsl:if test="ead:genreform">
-            <h4>Genre(s)</h4>
-            <ul class="small-push-1 margin-bottom">
+            <h3>Genre(s)</h3>
+            <ul class="margin-bottom">
                 <xsl:for-each select="ead:genreform">
-                    <li><xsl:apply-templates/> </li>
+                    <li style="margin-left:20px"><xsl:apply-templates/></li>
                 </xsl:for-each>
            </ul>     
         </xsl:if>
         <xsl:if test="ead:geogname">
-            <h4>Geographic Name(s)</h4>
-            <ul class="small-push-1 margin-bottom ">
+            <h3>Geographic Name(s)</h3>
+            <ul class="margin-bottom ">
                 <xsl:for-each select="ead:geogname">
-                    <li><xsl:apply-templates/> </li>
+                    <li style="margin-left:20px"><xsl:apply-templates/></li>
                 </xsl:for-each>                        
             </ul>
         </xsl:if>
         <xsl:if test="ead:occupation">
-            <h4>Occupation(s)</h4>
-            <ul class="small-push-1 margin-bottom ">
+            <h3>Occupation(s)</h3>
+            <ul class="margin-bottom ">
                 <xsl:for-each select="ead:occupation">
-                    <li><xsl:apply-templates/> </li>
+                    <li style="margin-left:20px"><xsl:apply-templates/></li>
                 </xsl:for-each>                        
             </ul>
         </xsl:if>
         <xsl:if test="ead:persname">
-            <h4>Personal Name(s)</h4>
-            <ul class="small-push-1 margin-bottom ">
+            <h3>Personal Name(s)</h3>
+            <ul class="margin-bottom ">
                 <xsl:for-each select="ead:persname">
-                    <li><xsl:apply-templates/> </li>
+                    <li style="margin-left:20px"><xsl:apply-templates/></li>
                 </xsl:for-each>                        
             </ul>
         </xsl:if>
         <xsl:if test="ead:subject">
             <h4>Subject(s)</h4>
-            <ul class="small-push-1 margin-bottom">
+            <ul class="margin-bottom">
                 <xsl:for-each select="ead:subject">
                 <!-- replace MARC subject pipe -->    
-                    <li>
+                    <li >
                         <xsl:variable name="myVar">
                             <xsl:call-template name="string-replace-all">
                                 <xsl:with-param name="text" select="." />
@@ -1785,7 +1789,7 @@ color: #000000;
                         <xsl:attribute name="class">
                             <xsl:choose>
                                 <xsl:when test="@level='subcollection' or @level='subgrp' or @level='subseries' or @level='subfonds'">subseries</xsl:when>
-                                <xsl:otherwise>nothing</xsl:otherwise>
+                                <xsl:otherwise></xsl:otherwise>
                             </xsl:choose>    
                         </xsl:attribute>
                         <xsl:choose>
@@ -2141,7 +2145,7 @@ color: #000000;
                             not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                             not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                             and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
-                        <tr class="collectionNote"> 
+                        <tr> 
                             <td class="{$clevelMargin}" colspan="5">
                                 <div class="collectionNote">
                                     <xsl:apply-templates select="*[not(self::ead:did) and 
