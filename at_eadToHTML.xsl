@@ -181,8 +181,8 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <link rel="stylesheet" media="screen" type="text/css" href="http://beta.library.newschool.edu/archives/assets/css/at_branding.css" />
-        <link type="text/css" media="print" rel="stylesheet" href="http://beta.library.newschool.edu/archives/assets/css/at_print.css" />
+        <link rel="stylesheet" media="screen" type="text/css" href="/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="/archives/assets/css/at_print.css" />
         <link rel="icon" href="http://beta.library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
         <link rel="stylesheet" href="http://beta.library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
 
@@ -191,9 +191,7 @@
 font-weight: bold;
 color: #000000;
 }
-.seriesNote {
-    margin-left:20px;
-}
+
 .containerHeader {text-align:left;}
 .collection {
     font-weight:700;
@@ -663,12 +661,12 @@ color: #000000;
              <!--  Must choose what happens here for title -->
             <xsl:choose>
                 <xsl:when test="self::ead:unittitle">
-                    <xsl:value-of select="self::ead:unittitle"/><xsl:if test="/ead:ead/ead:archdesc/ead:did/ead:unitdate[@type = 'inclusive']">, </xsl:if><xsl:value-of select="/ead:ead/ead:archdesc/ead:did/ead:unitdate[@type = 'inclusive']"/>
+                   <xsl:value-of select="self::ead:unittitle"/><xsl:if test="/ead:ead/ead:archdesc/ead:did/ead:unitdate[@type = 'inclusive']">, </xsl:if><xsl:value-of select="/ead:ead/ead:archdesc/ead:did/ead:unitdate[@type = 'inclusive']"/>
                     <xsl:if test="/ead:ead/ead:archdesc/ead:did/ead:unitdate[@type = 'bulk']">, (<xsl:value-of select="/ead:ead/ead:archdesc/ead:did/ead:unitdate[@type = 'bulk']"/>)       
                     </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:apply-templates/>
+                   <xsl:apply-templates/>
                 </xsl:otherwise>
             </xsl:choose>
       </p>  </dd>
@@ -709,23 +707,23 @@ color: #000000;
                 <xsl:choose>
                     <xsl:when test="parent::ead:archdesc">
                             <xsl:choose>
-                                <xsl:when test="self::ead:bibliography"><h3><xsl:call-template name="anchor"/>Bibliography</h3></xsl:when>
-                                <xsl:when test="self::ead:odd"><h3><xsl:call-template name="anchor"/>Other Descriptive Data</h3></xsl:when>
+                                <xsl:when test="self::ead:bibliography"><h4><xsl:call-template name="anchor"/>Bibliography</h4></xsl:when>
+                                <xsl:when test="self::ead:odd"><h4><xsl:call-template name="anchor"/>Other Descriptive Data</h4></xsl:when>
                                 <xsl:when test="self::ead:accruals"><h4><xsl:call-template name="anchor"/>Accruals</h4></xsl:when>
-                                <xsl:when test="self::ead:arrangement"><h3><xsl:call-template name="anchor"/>Arrangement</h3></xsl:when>
-                                <xsl:when test="self::ead:bioghist"><h3><xsl:call-template name="anchor"/>Biography/History</h3></xsl:when>
+                                <xsl:when test="self::ead:arrangement"><h4><xsl:call-template name="anchor"/>Arrangement</h4></xsl:when>
+                                <xsl:when test="self::ead:bioghist"><h4><xsl:call-template name="anchor"/>Biography/History</h4></xsl:when>
                                 <xsl:when test="self::ead:accessrestrict"><h4><xsl:call-template name="anchor"/>Restrictions on Access</h4></xsl:when>
                                 <xsl:when test="self::ead:userestrict"><h4><xsl:call-template name="anchor"/>Restrictions on Use</h4></xsl:when>
                                 <xsl:when test="self::ead:custodhist"><h4><xsl:call-template name="anchor"/>Custodial History</h4></xsl:when>
                                 <xsl:when test="self::ead:altformavail"><h4><xsl:call-template name="anchor"/>Alternative Form Available</h4></xsl:when>
                                 <xsl:when test="self::ead:originalsloc"><h4><xsl:call-template name="anchor"/>Original Location</h4></xsl:when>
-                                <xsl:when test="self::ead:fileplan"><h3><xsl:call-template name="anchor"/>File Plan</h3></xsl:when>
+                                <xsl:when test="self::ead:fileplan"><h4><xsl:call-template name="anchor"/>File Plan</h4></xsl:when>
                                 <xsl:when test="self::ead:acqinfo"><h4><xsl:call-template name="anchor"/>Acquisition Information</h4></xsl:when>
-                                <xsl:when test="self::ead:otherfindaid"><h3><xsl:call-template name="anchor"/>Other Collection Guides</h3></xsl:when>
-                                <xsl:when test="self::ead:phystech"><h3><xsl:call-template name="anchor"/>Physical Characteristics and Technical Requirements</h3></xsl:when>
+                                <xsl:when test="self::ead:otherfindaid"><h4><xsl:call-template name="anchor"/>Other Collection Guides</h4></xsl:when>
+                                <xsl:when test="self::ead:phystech"><h4><xsl:call-template name="anchor"/>Physical Characteristics and Technical Requirements</h4></xsl:when>
                                 <xsl:when test="self::ead:processinfo"><h4><xsl:call-template name="anchor"/>Processing Information</h4></xsl:when>
                                 <xsl:when test="self::ead:relatedmaterial"><h4><xsl:call-template name="anchor"/>Related Material</h4></xsl:when>
-                                <xsl:when test="self::ead:scopecontent"><h3><xsl:call-template name="anchor"/>Scope and Content</h3></xsl:when>
+                                <xsl:when test="self::ead:scopecontent"><h4><xsl:call-template name="anchor"/>Scope and Content</h4></xsl:when>
                                 <xsl:when test="self::ead:separatedmaterial"><h4><xsl:call-template name="anchor"/>Separated Material</h4></xsl:when>
                                 <xsl:when test="self::ead:appraisal"><h4><xsl:call-template name="anchor"/>Appraisal</h4></xsl:when>                        
                             </xsl:choose>
@@ -790,7 +788,7 @@ color: #000000;
 
     <!-- Templates for publication information  -->
     <xsl:template match="/ead:ead/ead:eadheader/ead:filedesc/ead:publicationstmt">
-        <h3>Publication Information</h3>
+        <h4>Publication Information</h4>
         <p style=""><xsl:apply-templates select="ead:publisher"/>
             <xsl:if test="ead:date">&#160;-&#160;<xsl:apply-templates select="ead:date"/></xsl:if>
         </p>
@@ -822,7 +820,7 @@ color: #000000;
             </xsl:otherwise>
         </xsl:choose>
         <xsl:if test="ead:corpname">
-            <h3>Corporate Name(s)</h3>
+            <h4>Corporate Name(s)</h4>
             <ul class="margin-bottom">
                 <xsl:for-each select="ead:corpname">
                     <li style="margin-left:20px"><xsl:apply-templates/></li>
@@ -830,7 +828,7 @@ color: #000000;
             </ul>            
         </xsl:if>
         <xsl:if test="ead:famname">
-            <h3>Family Name(s)</h3>
+            <h4>Family Name(s)</h4>
             <ul class="margin-bottom ">
                 <xsl:for-each select="ead:famname">
                     <li style="margin-left:20px"><xsl:apply-templates/> </li>
@@ -838,7 +836,7 @@ color: #000000;
             </ul>
         </xsl:if>
         <xsl:if test="ead:function">
-            <h3>Function(s)</h3>
+            <h4>Function(s)</h4>
             <ul class="margin-bottom ">
                 <xsl:for-each select="ead:function">
                     <li style="margin-left:20px"><xsl:apply-templates/></li>
@@ -846,7 +844,7 @@ color: #000000;
             </ul>
         </xsl:if>
         <xsl:if test="ead:genreform">
-            <h3>Genre(s)</h3>
+            <h4>Genre(s)</h4>
             <ul class="margin-bottom">
                 <xsl:for-each select="ead:genreform">
                     <li style="margin-left:20px"><xsl:apply-templates/></li>
@@ -854,7 +852,7 @@ color: #000000;
            </ul>     
         </xsl:if>
         <xsl:if test="ead:geogname">
-            <h3>Geographic Name(s)</h3>
+            <h4>Geographic Name(s)</h4>
             <ul class="margin-bottom ">
                 <xsl:for-each select="ead:geogname">
                     <li style="margin-left:20px"><xsl:apply-templates/></li>
@@ -862,7 +860,7 @@ color: #000000;
             </ul>
         </xsl:if>
         <xsl:if test="ead:occupation">
-            <h3>Occupation(s)</h3>
+            <h4>Occupation(s)</h4>
             <ul class="margin-bottom ">
                 <xsl:for-each select="ead:occupation">
                     <li style="margin-left:20px"><xsl:apply-templates/></li>
@@ -870,7 +868,7 @@ color: #000000;
             </ul>
         </xsl:if>
         <xsl:if test="ead:persname">
-            <h3>Personal Name(s)</h3>
+            <h4>Personal Name(s)</h4>
             <ul class="margin-bottom ">
                 <xsl:for-each select="ead:persname">
                     <li style="margin-left:20px"><xsl:apply-templates/></li>
@@ -879,7 +877,7 @@ color: #000000;
         </xsl:if>
         <xsl:if test="ead:subject">
             <h4>Subject(s)</h4>
-            <ul class="margin-bottom">
+            <ul style="margin-left:20px" class="margin-bottom">
                 <xsl:for-each select="ead:subject">
                 <!-- replace MARC subject pipe -->    
                     <li >
@@ -1160,7 +1158,7 @@ color: #000000;
         as a block item, display can be changed to inline, by changing the CSS -->
     <xsl:template match="ead:address">
 
-         <p class="margin-bottom"><div class="address">
+        <p> <div class="address">
             
             <xsl:for-each select="child::*">
                
@@ -1171,7 +1169,7 @@ color: #000000;
                     <xsl:otherwise><br/></xsl:otherwise>
                 </xsl:choose>
             </xsl:for-each>            
-        </div></p>      
+        </div> </p>    
     </xsl:template>
     <!-- ADDED 1/14/11: Added mailto link -->
     <xsl:template match="ead:addressline">
@@ -1337,9 +1335,10 @@ color: #000000;
            <xsl:when test="child::ead:unitdate[@type='bulk']">
                <xsl:apply-templates select="node()[not(self::ead:unitdate[@type='bulk'])]"/>
                <xsl:apply-templates select="ead:date[@type='bulk']"/>
+
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates/> 
+              <xsl:apply-templates/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -2020,7 +2019,7 @@ color: #000000;
                                     </xsl:choose>                            
                                     <xsl:if test="../../descendant-or-self::ead:dao">
                                         <xsl:for-each select="../../descendant-or-self::ead:dao">
-                                            Digital Object    
+                                           <!-- Digital Object  -->  
                                             <xsl:apply-templates select="."/>
                                         </xsl:for-each>
                                     </xsl:if> 
