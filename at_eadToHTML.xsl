@@ -198,6 +198,9 @@ color: #000000;
 .collection {
     font-weight:700;
 }
+
+#toc dd{margin-bottom:0px;}
+
 </style>
 
     </xsl:template>
@@ -214,7 +217,6 @@ color: #000000;
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     ]]>
 </script>
-
 
  <!-- 6/9/12 WS: New jquery script to show/hide layers and show/hide all layers -->
     <script type="text/javascript">
@@ -275,6 +277,8 @@ color: #000000;
     
         </xsl:text>
         </script>
+
+
 
          </xsl:template>  
 
@@ -505,11 +509,17 @@ color: #000000;
                     </xsl:for-each>
                 </xsl:for-each>
             </dl>
-            <p>&#160;</p>
-            <p><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
+            
+            <div style="float:left; margin-bottom:10px;"><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> printable version (PDF)</a></p>
-            <p>Questions? <a href="http://digitalarchives.library.newschool.edu/index.php/Contact/Form">Click here to contact us</a></p>
+                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> digitized materials</a>
+            </div>
+
+            <div style="float:left; margin-bottom:10px;"><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
+                <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
+                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> printable version (PDF)</a></div>
+        <div style="float:left"> <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> <a href="http://digitalarchives.library.newschool.edu/index.php/Contact/Form">Click here to contact us</a></div>
+
         </div>
     </xsl:template> 
  
@@ -2307,6 +2317,13 @@ color: #000000;
           $("#footer-wrapper").html(data.html);
       });
 </script> 
+
+<script type="text/javascript">
+(function($) {
+  var thePage = $("body");
+  thePage.html(thePage.html().replace(/archivist@newschool.edu/ig, '<a href="mailto:archivist@newschool.edu">archivist@newschool.edu</a>')); 
+})(jQuery)
+</script>
     </xsl:template>
     
     <!-- borrowed from http://geekswithblogs.net/Erik/archive/2008/04/01/120915.aspx. I would normally use replace in xslt 2.0, but...
