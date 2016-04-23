@@ -1338,7 +1338,7 @@ color: #000000;
 
             </xsl:when>
             <xsl:otherwise>
-              <xsl:apply-templates/>
+                <xsl:apply-templates/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
