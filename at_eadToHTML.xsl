@@ -167,9 +167,12 @@
                         <xsl:if test="/ead:ead/ead:archdesc/ead:dsc/child::*">
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:dsc"/>    
                         </xsl:if>
-                        <p class="footerText">Collection guide Last Updated:  <xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 6 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 9 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 1 ,4)"/></p>
-                        <p class="footerText">Copyright &#169; 2016 Libraries &amp; Archives, The New School. All rights reserved.</p>
-                        <p class="footerText">Archivist Toolkit at_eadToHTML stylesheet Version 2.00</p> 
+                        
+                      <div style="display:table-cell; vertical-align:middle">
+<p>Collection Guide Last Updated:  <xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 6 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 9 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 1 ,4)"/></p></div>
+
+                      <div class="margin-bottom"><p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0; float:left; padding-right:5px;vertical-align: middle;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p></div>
+
                     </div>
                     </div>    
                 </div>
@@ -1773,7 +1776,8 @@ color: #000000;
                                         <xsl:otherwise>3</xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:attribute>
-                                <xsl:text>Title</xsl:text>
+                               <!--  <xsl:text>Title</xsl:text> -->
+                                 <xsl:text></xsl:text>
                             </td>
                             <xsl:choose>
                                 <xsl:when test="count(ead:did/ead:container) = 1">
@@ -1798,7 +1802,7 @@ color: #000000;
                         <xsl:attribute name="class">
                             <xsl:choose>
                                 <xsl:when test="@level='subcollection' or @level='subgrp' or @level='subseries' or @level='subfonds'">subseries</xsl:when>
-                                <xsl:otherwise></xsl:otherwise>
+                                <xsl:otherwise>series</xsl:otherwise>
                             </xsl:choose>    
                         </xsl:attribute>
                         <xsl:choose>
@@ -1892,7 +1896,8 @@ color: #000000;
                                                     <xsl:otherwise>3</xsl:otherwise>
                                                 </xsl:choose>
                                             </xsl:attribute>
-                                            <xsl:text>Title</xsl:text>
+                                           <!--  <xsl:text>Title</xsl:text> -->
+                                           <xsl:text></xsl:text>
                                         </td>
                                         <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
                                         <xsl:variable name="container2" select="child::*[@level][1]/ead:did/ead:container[string(@parent) = string($container1/@id)]"/>
@@ -1913,7 +1918,8 @@ color: #000000;
                                                     <xsl:otherwise>3</xsl:otherwise>
                                                 </xsl:choose>
                                             </xsl:attribute>
-                                            <xsl:text>Title</xsl:text>
+                                            <!--  <xsl:text>Title</xsl:text> -->
+                                            <xsl:text></xsl:text>
                                         </td>
                                         <xsl:choose>
                                             <xsl:when test="child::*[ead:did/ead:container/@label][1]">
@@ -1968,7 +1974,8 @@ color: #000000;
                                             <xsl:otherwise>3</xsl:otherwise>
                                         </xsl:choose>
                                     </xsl:attribute>
-                                    <xsl:text>Title</xsl:text>
+                                    <!--  <xsl:text>Title</xsl:text> -->
+                                    <xsl:text></xsl:text>
                                 </td>
                                 <xsl:choose>
                                     <xsl:when test="count(../ead:container) &gt; 1">
@@ -2067,7 +2074,8 @@ color: #000000;
                                                             <xsl:otherwise>3</xsl:otherwise>
                                                         </xsl:choose>
                                                     </xsl:attribute>
-                                                    <xsl:text>Title</xsl:text>
+                                                <!--  <xsl:text>Title</xsl:text> -->
+                                                    <xsl:text></xsl:text>
                                                 </td>
                                                 <xsl:choose>
                                                     <xsl:when test="ead:did/ead:container[1]">
