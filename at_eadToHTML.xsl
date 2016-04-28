@@ -1152,7 +1152,7 @@ color: #000000;
         <div class="citation">
             <xsl:choose>
                 <xsl:when test="ead:head"><xsl:apply-templates/></xsl:when>
-                <xsl:otherwise><h4>Preferred Citation</h4><xsl:apply-templates/></xsl:otherwise>
+                <xsl:otherwise><h3>Preferred Citation</h3><xsl:apply-templates/></xsl:otherwise>
             </xsl:choose>
         </div>
     </xsl:template>
