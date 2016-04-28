@@ -1827,6 +1827,9 @@ color: #000000;
                                             <xsl:attribute name="colspan">
                                                 <xsl:text>3</xsl:text>
                                             </xsl:attribute>
+                                             <xsl:attribute name="colspan">
+                                                <xsl:text>3</xsl:text>
+                                            </xsl:attribute>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:attribute name="colspan">
@@ -2109,7 +2112,11 @@ color: #000000;
                                                                 <xsl:otherwise>3</xsl:otherwise>
                                                             </xsl:choose>
                                                         </xsl:attribute>
-                                                        <xsl:text>Title </xsl:text>
+                                                        <xsl:attribute name="style">
+                                                        <xsl:text>vertical-align:top;</xsl:text>
+                                                        </xsl:attribute>    
+                                                       <!-- <xsl:text>Title </xsl:text> -->
+                                                        <xsl:text></xsl:text>
                                                     </td>
                                                     <xsl:for-each select="ead:did/ead:container">     
                                                         <td class="containerHeader">    
@@ -2226,7 +2233,7 @@ color: #000000;
             <xsl:when test="../@level='subcollection' or ../@level='subgrp' or ../@level='series' 
                 or ../@level='subseries'or ../@level='collection'or ../@level='fonds' or 
                 ../@level='recordgrp' or ../@level='subfonds'">    
-               <p>
+               <p class="unittitle">
                     <xsl:call-template name="component-did-core"/>
                </p>
             </xsl:when>
