@@ -595,7 +595,7 @@ color: #000000;
             <!-- <xsl:apply-templates select="ead:unitid"/> -->
             <xsl:apply-templates select="ead:physdesc"/>        
             <xsl:apply-templates select="ead:physloc"/>        
-            <xsl:if test="ead:langmaterial/ead:language[@langcode != 'eng']"><xsl:apply-templates select="ead:langmaterial"/></xsl:if>
+           <!-- <xsl:if test="ead:langmaterial/ead:language[@langcode != 'eng']"> --><xsl:apply-templates select="ead:langmaterial"/><!-- </xsl:if> -->
             <xsl:apply-templates select="ead:materialspec"/>
             <xsl:apply-templates select="ead:container"/>
             <xsl:apply-templates select="ead:abstract"/> 
