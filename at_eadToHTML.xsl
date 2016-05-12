@@ -138,7 +138,7 @@
                         </xsl:if>
                         
                         <!-- Related Materials -->
-                        <xsl:if test="/ead:ead/ead:archdesc/ead:relatedmaterial or /ead:ead/ead:archdesc/ead:separatedmaterial">
+                        <xsl:if test="/ead:ead/ead:archdesc/ead:relatedmaterial">
                             <h3 id="relMat">Related Materials</h3>
                             
                             <!--<xsl:variable name="myrelatedNoteVar">
@@ -152,10 +152,17 @@
 
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:relatedmaterial"/>
                             
+                            <xsl:call-template name="returnTOC"/>
+                        </xsl:if>
+
+                      <xsl:if test="/ead:ead/ead:archdesc/ead:separatedmaterial">
+                            <h3 id="sepMat">Separated Materials</h3>
+                            
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:separatedmaterial"/>
                             
                             <xsl:call-template name="returnTOC"/>
                         </xsl:if>
+
                         <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:daogrp"/>
                         <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:dao"/>
                         <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:controlaccess"/>
@@ -171,7 +178,7 @@
                       <div style="display:table-cell; vertical-align:middle">
 <p>Collection Guide Last Updated:  <xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 6 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 9 ,2)"/>/<xsl:value-of select="substring(/ead:ead/ead:eadheader/ead:profiledesc/ead:creation/ead:date, 1 ,4)"/></p></div>
 
-                      <div class="margin-bottom"><p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0; float:left; padding-right:5px;vertical-align: middle;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p></div>
+                      <div class="margin-bottom"><p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0; float:left; padding-right:5px;vertical-align: middle;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>This collection guide is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p></div>
 
                     </div>
                     </div>    
@@ -401,8 +408,11 @@ color: #000000;
                 </xsl:if>
                 
                 <!-- Related Materials -->
-                <xsl:if test="/ead:ead/ead:archdesc/ead:relatedmaterial or /ead:ead/ead:archdesc/ead:separatedmaterial">
+                <xsl:if test="/ead:ead/ead:archdesc/ead:relatedmaterial">
                     <dt><a href="#relMat">Related Materials</a></dt>
+                </xsl:if>
+                 <xsl:if test="/ead:ead/ead:archdesc/ead:separatedmaterial">
+                    <dt><a href="#sepMat">Separated Materials</a></dt>
                 </xsl:if>
                 <xsl:for-each select="/ead:ead/ead:archdesc/ead:controlaccess">
                     <dt>                                
@@ -513,7 +523,7 @@ color: #000000;
             
             <div style="float:left; margin-bottom:10px;"><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> digitized materials</a>
+                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> digital materials</a>
             </div>
 
             <div style="float:left; margin-bottom:10px;"><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
