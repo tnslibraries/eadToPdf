@@ -605,7 +605,9 @@ color: #000000;
             <!-- <xsl:apply-templates select="ead:unitid"/> -->
             <xsl:apply-templates select="ead:physdesc"/>        
             <xsl:apply-templates select="ead:physloc"/>        
-           <!-- <xsl:if test="ead:langmaterial/ead:language[@langcode != 'eng']"> --><xsl:apply-templates select="ead:langmaterial"/><!-- </xsl:if> -->
+           <!-- <xsl:if test="ead:langmaterial/ead:language[@langcode != 'eng']"> -->
+           <xsl:apply-templates select="ead:langmaterial"/>
+           <!-- </xsl:if> -->
             <xsl:apply-templates select="ead:materialspec"/>
             <xsl:apply-templates select="ead:container"/>
             <xsl:apply-templates select="ead:abstract"/> 
@@ -662,7 +664,7 @@ color: #000000;
                         <xsl:when test="self::ead:physdesc">Extent</xsl:when>
                         <xsl:when test="self::ead:abstract">Summary</xsl:when>
                         <xsl:when test="self::ead:physloc">Location</xsl:when>
-                         <xsl:when test="self::ead:langmaterial">Language</xsl:when>
+                        <xsl:when test="self::ead:langmaterial">Language</xsl:when>
                         <xsl:when test="self::ead:materialspec">Technical</xsl:when>
                         <xsl:when test="self::ead:container">Container</xsl:when>
                         <xsl:when test="self::ead:note">Note</xsl:when>
@@ -1280,7 +1282,8 @@ color: #000000;
     <xsl:template match="ead:dao">
         <xsl:choose>
             <xsl:when test="child::*">
-                <xsl:apply-templates/> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:href"/>]</a>
+                <!-- <xsl:apply-templates/> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:href"/>]</a> -->
+               <!--  <xsl:apply-templates/> --> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:title"/>]</a>
             </xsl:when>
             <xsl:otherwise>
                 <a href="{@ns2:href}">
@@ -1457,15 +1460,16 @@ color: #000000;
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="@type = 'ordered'">
-                        <ol>
+                        <ol style="padding-top:6px;">
                             <xsl:attribute name="class">
                                 <xsl:value-of select="@numeration"/>
                             </xsl:attribute>
+
                             <xsl:apply-templates/>
                         </ol>
                     </xsl:when>
                     <xsl:when test="@numeration">
-                        <ol>
+                        <ol style="padding-top:6px;">
                             <xsl:attribute name="class">
                                 <xsl:value-of select="@numeration"/>
                             </xsl:attribute>
@@ -2022,6 +2026,7 @@ color: #000000;
                                     <xsl:attribute name="rowspan">
                                         <xsl:value-of select="count(../ead:container[@id])"/>
                                     </xsl:attribute>
+                                    <xsl:attribute name="valign"><xsl:text>top</xsl:text></xsl:attribute>
                                     <xsl:apply-templates select="../../ead:did" mode="dsc"/>
                                     <xsl:apply-templates select="../../ead:did/not[ead:unittitle]" mode="dsc"/>   
                                     <xsl:choose>
@@ -2029,7 +2034,7 @@ color: #000000;
                                                     not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                                     not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                                                     and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
-                                            <div class="collectionNote">
+                                            <div>
                                                 <xsl:apply-templates select="../../*[not(self::ead:did) and 
                                                             not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                                             not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
@@ -2181,7 +2186,7 @@ color: #000000;
                             and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
                         <tr> 
                             <td class="{$clevelMargin}" colspan="5">
-                                <div class="collectionNote">
+                                <div>
                                     <xsl:apply-templates select="*[not(self::ead:did) and 
                                         not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                         not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
