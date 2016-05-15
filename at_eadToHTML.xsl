@@ -1283,18 +1283,18 @@ color: #000000;
         <xsl:choose>
             <xsl:when test="child::*">
                 <!-- <xsl:apply-templates/> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:href"/>]</a> -->
-               <!--  <xsl:apply-templates/> --> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:title"/>]</a>
+               <!--  <xsl:apply-templates/> --> <a href="{@ns2:href}">[Digital Material]</a>
             </xsl:when>
             <xsl:otherwise>
                 <a href="{@ns2:href}">
-                    <xsl:value-of select="@ns2:href"/>
+                    <!-- <xsl:value-of select="@ns2:href"/> -->[Digital Material]
                 </a>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="ead:daoloc">
         <a href="{@ns2:href}">
-            <xsl:value-of select="@ns2:title"/>
+            <!-- <xsl:value-of select="@ns2:title"/> -->[Digital Material]
         </a>
     </xsl:template>
     
@@ -2042,8 +2042,11 @@ color: #000000;
                                             </div>                                    
                                         </xsl:when>
                                     </xsl:choose>                            
-                                    <xsl:if test="../../descendant-or-self::ead:dao">
-                                        <xsl:for-each select="../../descendant-or-self::ead:dao">
+                                   <!--  <xsl:if test="../../descendant-or-self::ead:dao"> 
+                                        <xsl:for-each select="../../descendant-or-self::ead:dao"> -->
+<xsl:if test="../../self::ead:dao"> 
+                                        <xsl:for-each select="../../self::ead:dao"> -->
+
                                            <!-- Digital Object  -->  
                                             <xsl:apply-templates select="."/>
                                         </xsl:for-each>
