@@ -1283,19 +1283,19 @@ color: #000000;
         <xsl:choose>
             <xsl:when test="child::*">
                 <!-- <xsl:apply-templates/> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:href"/>]</a> -->
-               <!--  <xsl:apply-templates/> --> <a href="{@ns2:href}">[Digital Material]</a>
+               <!--  <xsl:apply-templates/> --> <span style="padding-left:15px;"><a href="{@ns2:href}"><xsl:value-of select="@ns2:title"/></a></span>
             </xsl:when>
             <xsl:otherwise>
-                <a href="{@ns2:href}">
-                    <!-- <xsl:value-of select="@ns2:href"/> -->[Digital Material]
-                </a>
+              <span style="padding-left:15px;">  <a href="{@ns2:href}">
+                    <!-- <xsl:value-of select="@ns2:href"/> --><xsl:value-of select="@ns2:title"/>
+                </a></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="ead:daoloc">
-        <a href="{@ns2:href}">
-            <!-- <xsl:value-of select="@ns2:title"/> -->[Digital Material]
-        </a>
+     <span style="padding-left:15px;">   <a href="{@ns2:href}">
+            <!-- <xsl:value-of select="@ns2:title"/> --><xsl:value-of select="@ns2:title"/>
+        </a></span>
     </xsl:template>
     
     <!--Formats a simple table. The width of each column is defined by the colwidth attribute in a colspec element.-->
