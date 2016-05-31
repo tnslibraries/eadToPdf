@@ -1832,7 +1832,7 @@ color: #000000;
                                                 <xsl:text>5</xsl:text>
                                             </xsl:attribute>
                                         </xsl:when>
-                                        <xsl:when test="count(ead:did/ead:container) =1">
+                                        <xsl:when test="count(ead:did/ead:container) = 1">
                                             <xsl:attribute name="colspan">
                                                 <xsl:text>4</xsl:text>
                                             </xsl:attribute>
@@ -2044,13 +2044,15 @@ color: #000000;
                                     </xsl:choose>                            
                                    <!--  <xsl:if test="../../descendant-or-self::ead:dao"> 
                                         <xsl:for-each select="../../descendant-or-self::ead:dao"> -->
-<xsl:if test="../../self::ead:dao"> 
-                                        <xsl:for-each select="../../self::ead:dao"> -->
+                                 
+                                    <xsl:if test="../../self::ead:dao"> 
+                                        <xsl:for-each select="../../self::ead:dao">
 
                                            <!-- Digital Object  -->  
                                             <xsl:apply-templates select="."/>
                                         </xsl:for-each>
                                     </xsl:if> 
+                                    
                                 </td>
                             </xsl:if>
                             <td class="container">
@@ -2173,7 +2175,9 @@ color: #000000;
                                 </xsl:when>
                                 <xsl:otherwise/>
                             </xsl:choose>                            
-                            <xsl:apply-templates select="ead:did" mode="dsc"/>  
+                            <xsl:apply-templates select="ead:did" mode="dsc"/> 
+                            <br /><xsl:apply-templates select="ead:dao"/> 
+
                         </td>
                         <!-- Containers -->    
                         <xsl:for-each select="ead:did/ead:container">    
