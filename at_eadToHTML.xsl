@@ -1819,7 +1819,7 @@ color: #000000;
                                 <xsl:otherwise>series</xsl:otherwise>
                             </xsl:choose>    
                         </xsl:attribute>
-                        <xsl:choose>
+                        <xsl:choose>    
                             <xsl:when test="ead:did/ead:container">
                                 <td class="{$clevelMargin}">
                                     <!-- 6/7/12 WS: Fix for extra spaces between instances add rowspan-->                                        
@@ -1861,12 +1861,16 @@ color: #000000;
                                         </xsl:when>
                                     </xsl:choose>
                                 </td>
+
+                                <!-- creates header for multiple instance rows -->
                                 <xsl:for-each select="ead:did[ead:container][1]/ead:container[position() &lt;= 2]">    
                                     <td class="container">    
-                                        <xsl:apply-templates select="."/>       
+                                    <xsl:apply-templates select="."/>       
                                     </td>    
                                 </xsl:for-each>
                             </xsl:when>
+                           
+<!-- reads major heading and prints major info -->
                             <xsl:otherwise>
                                 <td colspan="5" class="{$clevelMargin}">
                                     <xsl:call-template name="anchor"/>
@@ -2049,7 +2053,7 @@ color: #000000;
                                         <xsl:for-each select="../../self::ead:dao">
 
                                            <!-- Digital Object  -->  
-                                            <xsl:apply-templates select="."/>
+                                      <xsl:apply-templates select="."/>
                                         </xsl:for-each>
                                     </xsl:if> 
                                     
@@ -2187,14 +2191,14 @@ color: #000000;
                         </xsl:for-each>
                     </tr>  
                         
-                    <xsl:if test="child::*[not(self::ead:did) and 
+                    <xsl:if test="child::*[not(self::ead:did) and not(self::ead:dao) and
                             not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                             not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                             and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
                         <tr> 
                             <td class="{$clevelMargin}" colspan="5">
                                 <div>
-                                    <xsl:apply-templates select="*[not(self::ead:did) and 
+                                    <xsl:apply-templates select="*[not(self::ead:did) and
                                         not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                         not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                                         and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]"/>  
