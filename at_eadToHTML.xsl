@@ -193,8 +193,8 @@
     <xsl:template name="css">
         <link rel="stylesheet" media="screen" type="text/css" href="/archives/assets/css/at_branding.css" />
         <link type="text/css" media="print" rel="stylesheet" href="/archives/assets/css/at_print.css" />
-        <link rel="icon" href="http://beta.library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
-        <link rel="stylesheet" href="http://beta.library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
+        <link rel="icon" href="/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="/assets/css/edu_ac.css" type="text/css" media="screen" />
 
 <style>
 .series {
