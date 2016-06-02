@@ -1283,17 +1283,17 @@ color: #000000;
         <xsl:choose>
             <xsl:when test="child::*">
                 <!-- <xsl:apply-templates/> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:href"/>]</a> -->
-               <!--  <xsl:apply-templates/> --> <span style="padding-left:15px;"><a href="{@ns2:href}"><xsl:value-of select="@ns2:title"/></a></span><br />
+               <!--  <xsl:apply-templates/> --> <span class="dao"><a href="{@ns2:href}"><xsl:value-of select="@ns2:title"/></a></span><br />
             </xsl:when>
             <xsl:otherwise>
-              <span style="padding-left:15px;">  <a href="{@ns2:href}">
+              <span class="dao">  <a href="{@ns2:href}">
                     <!-- <xsl:value-of select="@ns2:href"/> --><xsl:value-of select="@ns2:title"/>
                 </a></span><br />
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="ead:daoloc">
-     <span style="padding-left:15px;">   <a href="{@ns2:href}">
+     <span class="dao">   <a href="{@ns2:href}">
             <!-- <xsl:value-of select="@ns2:title"/> --><xsl:value-of select="@ns2:title"/>
         </a></span><br />
     </xsl:template>
@@ -2038,7 +2038,7 @@ color: #000000;
                                                     not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                                     not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                                                     and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
-                                            <div>
+                                            <div class="generalNote">
                                                 <xsl:apply-templates select="../../*[not(self::ead:did) and 
                                                             not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                                             not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
@@ -2191,7 +2191,7 @@ color: #000000;
                         </xsl:for-each>
                     </tr>  
                         
-                    <xsl:if test="child::*[not(self::ead:did) and not(self::ead:dao) and
+                    <xsl:if test="child::*[not(self::ead:did) and not(self::ead:dao) and not(self::ead:odd) and not(self::ead:scopecontent) and
                             not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                             not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                             and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
