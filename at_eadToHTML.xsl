@@ -520,17 +520,17 @@ color: #000000;
                     </xsl:for-each>
                 </xsl:for-each>
             </dl>
-            
-            <div style="float:left; margin-bottom:10px;"><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
+            <dl>
+            <dd><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> digital materials</a>
-            </div>
+                digital materials <i class="fa fa-external-link">&#160;</i></a>
+            </dd>
 
-            <div style="float:left; margin-bottom:10px;"><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
+            <dd><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> printable version (PDF)</a></div>
-        <div style="float:left"> <img src="http://library.newschool.edu/archives/assets/img/pdficon_small.gif" align="absmiddle" border="0"/> <a href="http://digitalarchives.library.newschool.edu/index.php/Contact/Form">Click here to contact us</a></div>
-
+               printable version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
+        <dd> <a href="http://digitalarchives.library.newschool.edu/index.php/Contact/Form">Click here to contact us <i class="fa fa-envelope">&#160;</i></a></dd>
+</dl>
         </div>
     </xsl:template> 
  
@@ -1283,10 +1283,13 @@ color: #000000;
         <xsl:choose>
             <xsl:when test="child::*">
                 <!-- <xsl:apply-templates/> <a href="{@ns2:href}">[<xsl:value-of select="@ns2:href"/>]</a> -->
-               <!--  <xsl:apply-templates/> --> <span class="dao"><a href="{@ns2:href}"><xsl:value-of select="@ns2:title"/></a></span><br />
+               <!--  <xsl:apply-templates/> --> <span class="dao"><a href="{@ns2:href}"><xsl:value-of select="@ns2:title"/><i>icon</i>
+           </a></span><br />
             </xsl:when>
             <xsl:otherwise>
-              <span class="dao">  <a href="{@ns2:href}">
+              <span class="dao">  
+
+                <a href="{@ns2:href}">
                     <!-- <xsl:value-of select="@ns2:href"/> --><xsl:value-of select="@ns2:title"/>
                 </a></span><br />
             </xsl:otherwise>
