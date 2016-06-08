@@ -523,12 +523,12 @@ color: #000000;
             <dl>
             <dd><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                Digital Materials <i class="fa fa-external-link">&#160;</i></a>
+                Digital materials <i class="fa fa-external-link">&#160;</i></a>
             </dd>
 
             <dd><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-               Printable Version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
+               Printable version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
         <dd> <a href="/archives/contact.php">Click here to contact us <i class="fa fa-envelope-o">&#160;</i></a></dd>
 </dl>
         </div>
