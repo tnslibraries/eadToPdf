@@ -191,11 +191,10 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <link rel="stylesheet" media="screen" type="text/css" href="/archives/assets/css/at_branding.css" />
-        <link type="text/css" media="print" rel="stylesheet" href="/archives/assets/css/at_print.css" />
-        <link rel="icon" href="/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
-        <link rel="stylesheet" href="/assets/css/edu_ac.css" type="text/css" media="screen" />
-
+        <link rel="icon" href="http://beta.library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="http://beta.library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
+        <link rel="stylesheet" media="screen" type="text/css" href="http://beta.library.newschool.edu/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="http://beta.library.newschool.edu/archives/assets/css/at_print.css" />
 <style>
 .series {
 font-weight: bold;
@@ -523,12 +522,12 @@ color: #000000;
             <dl>
             <dd><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-                Digital Materials <i class="fa fa-external-link">&#160;</i></a>
+                Digital materials <i class="fa fa-external-link">&#160;</i></a>
             </dd>
 
             <dd><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
-               Printable Version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
+               Printable version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
         <dd> <a href="/archives/contact.php">Click here to contact us <i class="fa fa-envelope-o">&#160;</i></a></dd>
 </dl>
         </div>
