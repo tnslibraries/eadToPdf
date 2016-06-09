@@ -528,7 +528,7 @@ color: #000000;
             <dd><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
                Printable version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
-        <dd> <a href="/archives/contact.php">Click here to contact us <i class="fa fa-envelope-o">&#160;</i></a></dd>
+        <dd> <a href="/archives/archives_contact.php">Click here to contact us <i class="fa fa-envelope-o">&#160;</i></a></dd>
 </dl>
         </div>
     </xsl:template> 
