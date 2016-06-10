@@ -520,11 +520,13 @@ color: #000000;
                 </xsl:for-each>
             </dl>
             <dl>
+
+            <xsl:if test="/ead:ead/ead:archdesc/ead:altformavail">    
             <dd><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
                 Digital materials <i class="fa fa-external-link">&#160;</i></a>
             </dd>
-
+</xsl:if>
             <dd><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
                Printable version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
@@ -2181,9 +2183,13 @@ color: #000000;
                                 </xsl:when>
                                 <xsl:otherwise/>
                             </xsl:choose>                            
-                            <xsl:apply-templates select="ead:did" mode="dsc"/> 
-                            <br /><xsl:apply-templates select="ead:dao"/> 
-
+                            <xsl:apply-templates select="ead:did" mode="dsc"/>
+                             <div class="generalNote">
+                                    <xsl:apply-templates select="*[not(self::ead:did) and
+                                        not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
+                                        not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
+                                        and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]"/>
+                                </div>  
                         </td>
                         <!-- Containers -->    
                         <xsl:for-each select="ead:did/ead:container">    
@@ -2193,7 +2199,7 @@ color: #000000;
                         </xsl:for-each>
                     </tr>  
                         
-                    <xsl:if test="child::*[not(self::ead:did) and not(self::ead:dao) and not(self::ead:odd) and not(self::ead:scopecontent) and
+                 <!--   <xsl:if test="child::*[not(self::ead:did) and not(self::ead:dao) and
                             not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                             not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                             and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
@@ -2203,17 +2209,17 @@ color: #000000;
                                     <xsl:apply-templates select="*[not(self::ead:did) and
                                         not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                         not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
-                                        and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]"/>  
+                                        and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]"/>  test 1
                                 </div>                                    
                                 
                             </td>
                         </tr>                                                        
-                    </xsl:if>
+                    </xsl:if> -->
                 </xsl:when>
                 <xsl:otherwise>
                     <tr class="{$colorClass}"> 
                         <td class="{$clevelMargin}" colspan="5">
-                            <xsl:apply-templates select="ead:did" mode="dsc"/>
+                            <xsl:apply-templates select="ead:did" mode="dsc"/> test 2
                             <xsl:apply-templates select="*[not(self::ead:did) and 
                                 not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                 not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
