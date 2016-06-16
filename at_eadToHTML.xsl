@@ -521,8 +521,8 @@ color: #000000;
             </dl>
             <dl>
 
-            <xsl:if test="starts-with(/ead:ead/ead:archdesc/ead:altformavail/ead:p/ead:extref,'http://digitalarchives')">    
-            <dd><a class="pdflink"><xsl:attribute name="href">http://digitalarchives.library.newschool.edu/index.php/Detail/collections/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/></xsl:attribute>
+            <xsl:if test="starts-with(/ead:ead/ead:archdesc/ead:altformavail/ead:p/ead:extref/@ns2:href,'http://digitalarchives')">    
+            <dd><a href="{/ead:ead/ead:archdesc/ead:altformavail/ead:p/ead:extref/@ns2:href}">
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
                 Digital materials <i class="fa fa-external-link">&#160;</i></a>
             </dd>
