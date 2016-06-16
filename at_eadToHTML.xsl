@@ -1899,7 +1899,7 @@ color: #000000;
                                 <td class="container" style="border:none;padding-top:0;padding-left: 12px;">
                                     <xsl:apply-templates select="."/>
                                 </td>
-                                <td style="border:none;padding-top:0;padding-left: 12px;">
+                                <td class="container" style="border:none;padding-top:0;padding-left: 12px;">
                                     <xsl:value-of select="../ead:container[@parent = $containerID]"/>
                                 </td>
                             </tr>
