@@ -2035,15 +2035,22 @@ color: #000000;
                                         <xsl:value-of select="count(../ead:container[@id])"/>
                                     </xsl:attribute>
                                     <xsl:attribute name="valign"><xsl:text>top</xsl:text></xsl:attribute>
-                                    <xsl:apply-templates select="../../ead:did" mode="dsc"/>
-                                    <xsl:apply-templates select="../../ead:did/not[ead:unittitle]" mode="dsc"/>   
+<xsl:apply-templates select="../../ead:did" mode="dsc"/>
+                                    <xsl:apply-templates select="../../ead:did/not[ead:unittitle]" mode="dsc"/> <br />  
+ <xsl:if test="../../ead:dao"> 
+                                        <xsl:for-each select="../../ead:dao">
+
+                                           <!-- Digital Object  -->  
+                                      <xsl:apply-templates select="."/>
+                                        </xsl:for-each>
+</xsl:if>
                                     <xsl:choose>
                                         <xsl:when test="../../child::*[not(self::ead:did) and 
                                                     not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                                     not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                                                     and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]">
                                             <div class="generalNote">
-                                                <xsl:apply-templates select="../../*[not(self::ead:did) and 
+                                                <xsl:apply-templates select="../../*[not(self::ead:did) and not(self::ead:dao) and
                                                             not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                                             not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                                                             and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]"/>  
@@ -2052,14 +2059,7 @@ color: #000000;
                                     </xsl:choose>                            
                                    <!--  <xsl:if test="../../descendant-or-self::ead:dao"> 
                                         <xsl:for-each select="../../descendant-or-self::ead:dao"> -->
-                                 
-                                    <xsl:if test="../../self::ead:dao"> 
-                                        <xsl:for-each select="../../self::ead:dao">
-
-                                           <!-- Digital Object  -->  
-                                      <xsl:apply-templates select="."/>
-                                        </xsl:for-each>
-                                    </xsl:if> 
+                                
                                     
                                 </td>
                             </xsl:if>
@@ -2184,8 +2184,18 @@ color: #000000;
                                 <xsl:otherwise/>
                             </xsl:choose>                            
                             <xsl:apply-templates select="ead:did" mode="dsc"/>
+<br />
+                                    <xsl:if test="ead:dao"> 
+                                        <xsl:for-each select="ead:dao">
+
+                                           <!-- Digital Object  -->  
+                                      <xsl:apply-templates select="."/>
+                                        </xsl:for-each>
+                                    </xsl:if> 
+<xsl:apply-templates select="ead:did/not[ead:unittitle]" mode="dsc"/> 
+
                              <div class="generalNote">
-                                    <xsl:apply-templates select="*[not(self::ead:did) and
+                                    <xsl:apply-templates select="*[not(self::ead:did) and not(self::ead:dao) and
                                         not(self::ead:c) and not(self::ead:c02) and not(self::ead:c03) and
                                         not(self::ead:c04) and not(self::ead:c05) and not(self::ead:c06) and not(self::ead:c07)
                                         and not(self::ead:c08) and not(self::ead:c09) and not(self::ead:c10) and not(self::ead:c11) and not(self::ead:c12)]"/>
