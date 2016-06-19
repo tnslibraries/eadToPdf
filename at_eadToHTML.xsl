@@ -191,24 +191,10 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <link rel="icon" href="/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
-        <link rel="stylesheet" href="/assets/css/edu_ac.css" type="text/css" media="screen" />
-        <link rel="stylesheet" media="screen" type="text/css" href="/archives/assets/css/at_branding.css" />
-        <link type="text/css" media="print" rel="stylesheet" href="/archives/assets/css/at_print.css" />
-<style>
-.series {
-font-weight: bold;
-color: #000000;
-}
-
-.containerHeader {text-align:left;}
-.collection {
-    font-weight:700;
-}
-
-#toc dd{margin-bottom:0px;}
-
-</style>
+        <link rel="icon" href="http://beta.library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="http://beta.library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
+        <link rel="stylesheet" media="screen" type="text/css" href="http://beta.library.newschool.edu/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="http://beta.library.newschool.edu/archives/assets/css/at_print.css" />
 
     </xsl:template>
 
@@ -549,7 +535,7 @@ color: #000000;
         <!-- 7/7/11 WS: Added image code from commented out section to ead:header -->
           <xsl:choose>
               <xsl:when test="/ead:ead/ead:archdesc/ead:did/ead:head">
-                  <img border="0" style="padding-left:0px; padding-bottom:10px;padding-top:10px;"><xsl:attribute name="src">/archives/findingaids/images/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.jpg</xsl:attribute></img>
+                  <img border="0" style="padding-left:0px; padding-bottom:10px;padding-top:10px;"><xsl:attribute name="src">http://library.newschool.edu/archives/findingaids/images/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.jpg</xsl:attribute></img>
                   <div>
                       <a href="#" class="showAll" style="border:1px solid #000; padding:.5em; font-weight:bold;color:blue">+ Expand all text to enable full keyword searching </a>
                   </div>
@@ -1619,13 +1605,13 @@ color: #000000;
         <table class="containerList" cellpadding="0" cellspacing="0" border="0">
             <!-- Call children of dsc -->
             <xsl:apply-templates select="*[not(self::ead:head)]"/>
-            <tr>
+            <!--<tr>
                 <td/>
                 <td style="width: 15%;"/>
                 <td style="width: 15%"/>
                 <td style="width: 15%;"/>
                 <td style="width: 15%;"/>
-            </tr>
+            </tr> -->
       </table>
     </xsl:template>
     
@@ -1785,6 +1771,7 @@ color: #000000;
                 <xsl:when test="@level='subcollection' or @level='subgrp' or @level='series' 
                     or @level='subseries' or @level='collection'or @level='fonds' or 
                     @level='recordgrp' or @level='subfonds' or @level='class' or (@level='otherlevel' and not(child::ead:did/ead:container))">
+                    
                     <xsl:if test="ead:did/ead:container">
                         <tr class="containerTypes"> 
                             <td class="containerHeaderTitle">
@@ -1859,8 +1846,15 @@ color: #000000;
                                     <xsl:apply-templates select="ead:did" mode="dsc"/>
                                     <xsl:choose>
                                         <xsl:when test="child::*[not(ead:did) and not(self::ead:did)]">
-                                            <div class="seriesNote">
-                                                <xsl:apply-templates select="child::*[not(ead:did) and not(self::ead:did)]"/>
+                                            <div class="seriesNote"> 
+                                            <xsl:if test="ead:dao"> 
+                                                <xsl:for-each select="ead:dao">
+
+                                                <!-- Digital Object  -->  
+                                                <xsl:apply-templates select="."/>
+                                                </xsl:for-each>
+                                            </xsl:if>
+                                                <xsl:apply-templates select="child::*[not(ead:did) and not(self::ead:did) and not(self::ead:dao)]"/>
                                             </div>
                                         </xsl:when>
                                     </xsl:choose>
@@ -1873,13 +1867,21 @@ color: #000000;
                                     </td>    
                                 </xsl:for-each>
                             </xsl:when>
-                           
+
 <!-- reads major heading and prints major info -->
                             <xsl:otherwise>
                                 <td colspan="5" class="{$clevelMargin}">
                                     <xsl:call-template name="anchor"/>
                                     <xsl:apply-templates select="ead:did" mode="dsc"/>
-                                    <div class="seriesNote"><xsl:apply-templates select="child::*[not(ead:did) and not(self::ead:did)]"/></div>
+                                    <div class="seriesNote">
+                                        <xsl:if test="ead:dao"> 
+                                                <xsl:for-each select="ead:dao">
+
+                                                <!-- Digital Object  -->  
+                                                <xsl:apply-templates select="."/>
+                                                </xsl:for-each>
+                                            </xsl:if>
+                                    <xsl:apply-templates select="child::*[not(ead:did) and not(self::ead:did) and not(self::ead:dao)]"/></div>
                                 </td>
                             </xsl:otherwise>
                         </xsl:choose>
