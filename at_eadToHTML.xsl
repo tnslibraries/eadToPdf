@@ -505,6 +505,7 @@
                     </xsl:for-each>
                 </xsl:for-each>
             </dl>
+            <hr />
             <dl>
 
             <xsl:if test="starts-with(/ead:ead/ead:archdesc/ead:altformavail/ead:p/ead:extref/@ns2:href,'http://digitalarchives')">    
@@ -805,7 +806,7 @@
     </xsl:template>
     <!-- Templates for revision description  -->
     <xsl:template match="/ead:ead/ead:eadheader/ead:revisiondesc">
-        <h3>Revision Description</h3>
+        <h4>Revision Description</h4>
         <p><xsl:if test="ead:change/ead:item"><xsl:apply-templates select="ead:change/ead:item"/></xsl:if><xsl:if test="ead:change/ead:date">&#160;<xsl:apply-templates select="ead:change/ead:date"/></xsl:if></p>        
     </xsl:template>
     
