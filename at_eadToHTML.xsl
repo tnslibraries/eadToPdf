@@ -124,6 +124,7 @@
                                 </p>                
                             </xsl:if>
                             <xsl:apply-templates select="/ead:ead/ead:eadheader/ead:filedesc/ead:publicationstmt"/>
+                            <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:prefercite"/>
                             <xsl:apply-templates select="/ead:ead/ead:eadheader/ead:revisiondesc"/>
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:accessrestrict"/>
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:userestrict"/>
@@ -134,6 +135,7 @@
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:appraisal"/>
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:altformavail"/>
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:originalsloc"/>
+                           
                             <xsl:call-template name="returnTOC"/>
                         </xsl:if>
                         
@@ -783,7 +785,7 @@
                     self::ead:altformavail or self::ead:acqinfo or
                     self::ead:processinfo or self::ead:appraisal or
                     self::ead:originalsloc or  
-                    self::ead:relatedmaterial or self::ead:separatedmaterial or self::ead:prefercite"/>
+                    self::ead:relatedmaterial or self::ead:separatedmaterial"/>
                     <xsl:otherwise>
                          <xsl:call-template name="returnTOC" /> 
                     </xsl:otherwise>
