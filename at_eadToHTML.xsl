@@ -587,10 +587,11 @@
             by changing the order of the following statements. -->
         <dl class="summary"> 
             <xsl:apply-templates select="ead:repository"/>
+            <xsl:apply-templates select="ead:unitid"/>
             <xsl:apply-templates select="ead:origination"/>
             <xsl:apply-templates select="ead:unittitle"/> 
             <!-- <xsl:apply-templates select="ead:unitdate"/> -->
-            <!-- <xsl:apply-templates select="ead:unitid"/> -->
+
             <xsl:apply-templates select="ead:physdesc"/>        
             <xsl:apply-templates select="ead:physloc"/>        
            <!-- <xsl:if test="ead:langmaterial/ead:language[@langcode != 'eng']"> -->
@@ -632,8 +633,9 @@
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:choose>
-                        <xsl:when test="self::ead:unitid">ID</xsl:when>
+                        <xsl:when test="self::ead:unitid">Collection Identifier</xsl:when>
                         <xsl:when test="self::ead:repository">Repository</xsl:when>
+                        <xsl:when test="self::ead:unitid">Collection Identifier</xsl:when>
                         <xsl:when test="self::ead:unittitle">Title</xsl:when>
 						<xsl:when test="self::ead:unitdate">Date</xsl:when>
                         <xsl:when test="self::ead:origination">
