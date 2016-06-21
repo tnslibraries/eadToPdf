@@ -133,7 +133,7 @@
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:acqinfo"/>
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:processinfo"/>
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:appraisal"/>
-                            <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:altformavail"/>
+                          <!--  <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:altformavail"/> -->
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:originalsloc"/>
                            
                             <xsl:call-template name="returnTOC"/>
