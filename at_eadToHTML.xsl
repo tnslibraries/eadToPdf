@@ -62,7 +62,7 @@
     
     <xsl:strip-space elements="*"/>
     <xsl:output indent="yes" method="html" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" encoding="utf-8"/>
-    <xsl:include href="reports/Resources/eadToPdf/lookupLists.xsl"/>
+    <xsl:include href="lookupLists.xsl"/>
 <!--    <xsl:include href="lookupLists.xsl"/>-->
     
     <xsl:variable name="id" select="/ead:ead/ead:archdesc/ead:did/ead:unitid"/>
@@ -196,10 +196,10 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <link rel="icon" href="http://beta.library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
-        <link rel="stylesheet" href="http://beta.library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
-        <link rel="stylesheet" media="screen" type="text/css" href="http://beta.library.newschool.edu/archives/assets/css/at_branding.css" />
-        <link type="text/css" media="print" rel="stylesheet" href="http://beta.library.newschool.edu/archives/assets/css/at_print.css" />
+        <link rel="icon" href="/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="/assets/css/edu_ac.css" type="text/css" media="screen" />
+        <link rel="stylesheet" media="screen" type="text/css" href="/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="/archives/assets/css/at_print.css" />
 
     </xsl:template>
 
@@ -2002,7 +2002,7 @@
                     <xsl:variable name="containerSib" select="count(../ead:container[@parent = $id] | ../ead:container[@id = $id])"/>
                     
                         <!-- Tests to see if first container is different from preceding did container -->
-                        <xsl:if test="(position()=1)">
+                        <xsl:if test="(position()=1) and ../../../@level='subseries'">
                             <tr class="containerTypes"> 
                                 <td class="containerHeaderTitle">
                                     <xsl:attribute name="colspan">
