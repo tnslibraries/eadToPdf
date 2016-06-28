@@ -114,7 +114,7 @@
                             /ead:ead/ead:archdesc/ead:appraisal or
                             /ead:ead/ead:archdesc/ead:originalsloc or /ead:ead/ead:eadheader/ead:filedesc/ead:publicationstmt or /ead:ead/ead:eadheader/ead:revisiondesc">
                             <h3 id="adminInfo">Administrative Information</h3>
-                            <xsl:if test="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author">
+                           <!-- <xsl:if test="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author">
                                 <p>
                                     <xsl:variable name="myAuthor">
                                         <xsl:call-template name="string-replace-all">
@@ -125,7 +125,7 @@
                                     </xsl:variable>  
                                     <xsl:value-of select="$myAuthor"/>
                                 </p>                
-                            </xsl:if>
+                            </xsl:if> -->
                             <xsl:apply-templates select="/ead:ead/ead:eadheader/ead:filedesc/ead:publicationstmt"/>
                             <xsl:apply-templates select="/ead:ead/ead:archdesc/ead:prefercite"/>
                             <xsl:apply-templates select="/ead:ead/ead:eadheader/ead:revisiondesc"/>
@@ -196,10 +196,10 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <link rel="icon" href="/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
-        <link rel="stylesheet" href="/assets/css/edu_ac.css" type="text/css" media="screen" />
-        <link rel="stylesheet" media="screen" type="text/css" href="/archives/assets/css/at_branding.css" />
-        <link type="text/css" media="print" rel="stylesheet" href="/archives/assets/css/at_print.css" />
+        <link rel="icon" href="http://beta.library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="http://beta.library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
+        <link rel="stylesheet" media="screen" type="text/css" href="http://beta.library.newschool.edu/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="http://beta.library.newschool.edu/archives/assets/css/at_print.css" />
 
     </xsl:template>
 
@@ -2003,11 +2003,11 @@
                     
                         <!-- Tests to see if first container is different from preceding did container -->
                         <xsl:if test="(position()=1) and ../../../@level='subseries'">
-<tr class="containerTypes"> 
-<xsl:if test="count(../../preceding-sibling::*) + 1 &gt; 2">
-<xsl:attribute name="style">
-    <xsl:text>display:none;</xsl:text>
-</xsl:attribute>
+                            <tr class="containerTypes"> 
+                                <xsl:if test="count(../../preceding-sibling::*) + 1 &gt; 2">
+                                <xsl:attribute name="style">
+                                <xsl:text>display:none;</xsl:text>
+                                </xsl:attribute>
                                 </xsl:if>
                                 <td class="containerHeaderTitle">
                                     <xsl:attribute name="colspan">
@@ -2017,7 +2017,7 @@
                                         </xsl:choose>
                                     </xsl:attribute>
                                     <!--  <xsl:text>Title</xsl:text> -->
-                                    <xsl:text>Test 4</xsl:text>
+                                    <xsl:text></xsl:text>
                                 </td>
                                 <xsl:choose>
                                     <xsl:when test="count(../ead:container) &gt; 1">
