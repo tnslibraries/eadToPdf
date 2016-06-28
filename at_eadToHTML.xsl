@@ -1791,7 +1791,7 @@
                                         <xsl:otherwise>3</xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:attribute>
-                               <xsl:text>Test 1</xsl:text>
+                               <xsl:text></xsl:text>
                                  <xsl:text></xsl:text>
                             </td>
                             <xsl:choose>
@@ -1933,7 +1933,7 @@
                                                     <xsl:otherwise>3</xsl:otherwise>
                                                 </xsl:choose>
                                             </xsl:attribute>
-                                           <xsl:text>Test 2</xsl:text>
+                                           <xsl:text></xsl:text>
                                            <xsl:text></xsl:text>
                                         </td>
                                         <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
@@ -1956,7 +1956,7 @@
                                                 </xsl:choose>
                                             </xsl:attribute>
                                             <!--  <xsl:text>Title</xsl:text> -->
-                                            <xsl:text>Test 3</xsl:text>
+                                            <xsl:text></xsl:text>
                                         </td>
                                         <xsl:choose>
                                             <xsl:when test="child::*[ead:did/ead:container/@label][1]">
@@ -2003,7 +2003,12 @@
                     
                         <!-- Tests to see if first container is different from preceding did container -->
                         <xsl:if test="(position()=1) and ../../../@level='subseries'">
-                            <tr class="containerTypes"> 
+<tr class="containerTypes"> 
+<xsl:if test="count(../../preceding-sibling::*) + 1 &gt; 2">
+<xsl:attribute name="style">
+    <xsl:text>display:none;</xsl:text>
+</xsl:attribute>
+                                </xsl:if>
                                 <td class="containerHeaderTitle">
                                     <xsl:attribute name="colspan">
                                         <xsl:choose>
@@ -2118,7 +2123,7 @@
                                                         </xsl:choose>
                                                     </xsl:attribute>
                                                 <!--  <xsl:text>Title</xsl:text> -->
-                                                    <xsl:text>Test 5</xsl:text>
+                                                    <xsl:text></xsl:text>
                                                 </td>
                                                 <xsl:choose>
                                                     <xsl:when test="ead:did/ead:container[1]">
