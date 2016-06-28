@@ -5,6 +5,9 @@
         *                                                                 *
         * VERSION:          2.00                                          *
         *                                                                 *
+        * AUTHOR:           Allen Jones                                   *
+        *                   jonesa@newschool.edu                          *
+        *                                                                 *
         * AUTHOR:           Winona Salesky                                *
         *                   wsalesky@gmail.com                            *
         *                                                                 *
@@ -81,7 +84,6 @@
                
 <xsl:call-template name="banner"/>
 <xsl:call-template name="nav1"/>
-              
               
               <!-- END BANNER AJ 4/31 -->  
                 
@@ -1789,7 +1791,7 @@
                                         <xsl:otherwise>3</xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:attribute>
-                               <!--  <xsl:text>Title</xsl:text> -->
+                               <xsl:text>Test 1</xsl:text>
                                  <xsl:text></xsl:text>
                             </td>
                             <xsl:choose>
@@ -1931,7 +1933,7 @@
                                                     <xsl:otherwise>3</xsl:otherwise>
                                                 </xsl:choose>
                                             </xsl:attribute>
-                                           <!--  <xsl:text>Title</xsl:text> -->
+                                           <xsl:text>Test 2</xsl:text>
                                            <xsl:text></xsl:text>
                                         </td>
                                         <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
@@ -1954,7 +1956,7 @@
                                                 </xsl:choose>
                                             </xsl:attribute>
                                             <!--  <xsl:text>Title</xsl:text> -->
-                                            <xsl:text></xsl:text>
+                                            <xsl:text>Test 3</xsl:text>
                                         </td>
                                         <xsl:choose>
                                             <xsl:when test="child::*[ead:did/ead:container/@label][1]">
@@ -2000,7 +2002,7 @@
                     <xsl:variable name="containerSib" select="count(../ead:container[@parent = $id] | ../ead:container[@id = $id])"/>
                     
                         <!-- Tests to see if first container is different from preceding did container -->
-                        <xsl:if test="position()=1">
+                        <xsl:if test="(position()=1)">
                             <tr class="containerTypes"> 
                                 <td class="containerHeaderTitle">
                                     <xsl:attribute name="colspan">
@@ -2010,7 +2012,7 @@
                                         </xsl:choose>
                                     </xsl:attribute>
                                     <!--  <xsl:text>Title</xsl:text> -->
-                                    <xsl:text></xsl:text>
+                                    <xsl:text>Test 4</xsl:text>
                                 </td>
                                 <xsl:choose>
                                     <xsl:when test="count(../ead:container) &gt; 1">
@@ -2116,7 +2118,7 @@
                                                         </xsl:choose>
                                                     </xsl:attribute>
                                                 <!--  <xsl:text>Title</xsl:text> -->
-                                                    <xsl:text></xsl:text>
+                                                    <xsl:text>Test 5</xsl:text>
                                                 </td>
                                                 <xsl:choose>
                                                     <xsl:when test="ead:did/ead:container[1]">
@@ -2142,8 +2144,8 @@
                                 <xsl:otherwise>
                                     <xsl:choose>
                                         <xsl:when test="$container != $sibContainer">
-                                            <tr class="containerTypes"> 
-                                                    <td class="containerHeaderTitle">
+                                            <tr class="containerTypes" style="display:none;"> 
+                                                    <td class="containerHeaderTitle" >
                                                         <xsl:attribute name="colspan">
                                                             <xsl:choose>
                                                                 <xsl:when test="count(ead:did[ead:container][1]/ead:container) = 1">4</xsl:when>
