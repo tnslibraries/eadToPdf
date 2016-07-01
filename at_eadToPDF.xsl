@@ -191,9 +191,9 @@
             <fo:block font-size="16pt">
                 <xsl:apply-templates select="ead:filedesc/ead:titlestmt/ead:subtitle"/>
             </fo:block>
-            <fo:block font-size="12pt" >
+            <!--<fo:block font-size="12pt" >
                 <xsl:apply-templates select="ead:filedesc/ead:titlestmt/ead:author"/>
-            </fo:block>
+            </fo:block> -->
             
             <!-- Adds repositry branding device. 
             <xsl:if test="/ead:ead/ead:eadheader/ead:filedesc/ead:publicationstmt/ead:p/ead:extref">
@@ -627,7 +627,7 @@
                     <xsl:apply-templates select="ead:unitdate"/>
                     <xsl:apply-templates select="ead:physdesc"/>
                     <xsl:apply-templates select="ead:physloc"/>
-                    <xsl:apply-templates select="ead:langmaterial"/>
+                    <xsl:apply-templates select="ead:langmaterial[@label = 'Language of Materials note']"/>
                     <xsl:apply-templates select="ead:materialspec"/>
                     <xsl:apply-templates select="ead:container"/>
                     <xsl:apply-templates select="ead:abstract"/>
