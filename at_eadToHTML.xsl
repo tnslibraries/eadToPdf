@@ -1792,7 +1792,6 @@
                                     </xsl:choose>
                                 </xsl:attribute>
                                <xsl:text></xsl:text>
-                                 <xsl:text></xsl:text>
                             </td>
                             <xsl:choose>
                                 <xsl:when test="count(ead:did/ead:container) = 1">
@@ -1920,7 +1919,7 @@
                     
                 <!-- ADDED 1/4/11: Adds container headings if series/subseries is followed by a file -->                   
                     <xsl:choose>
-                        <xsl:when test="child::*[@level][1]/@level='subcollection' or child::*[@level][1]/@level='subgrp' or child::*[@level][1]/@level='subseries' or child::*[@level][1]/@level='subfonds'"/>                        
+                        <xsl:when test="child::*[@level][1]/@level='subcollection' or child::*[@level][1]/@level='subgrp' or child::*[@level][1]/@level='subseries' or child::*[@level][1]/@level='subfonds' "/>                        
                         <xsl:when test="child::*[@level][1]/@level='file' or child::*[@level][1]/@level='item' or (child::*[@level][1]/@level='otherlevel'and child::*[@level][1]/child::ead:did/ead:container)">
                             <xsl:choose>
                                 <xsl:when test="count(child::*[@level][1]/ead:did/ead:container/@id) &gt; 1"/>
@@ -1933,7 +1932,6 @@
                                                     <xsl:otherwise>3</xsl:otherwise>
                                                 </xsl:choose>
                                             </xsl:attribute>
-                                           <xsl:text></xsl:text>
                                            <xsl:text></xsl:text>
                                         </td>
                                         <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
@@ -2006,7 +2004,7 @@
                             <tr class="containerTypes"> 
                                 <xsl:if test="count(../../preceding-sibling::*) + 1 &gt; 2">
                                 <xsl:attribute name="style">
-                                <xsl:text>display:none;</xsl:text>
+                               <!-- <xsl:text>display:none;</xsl:text> -->
                                 </xsl:attribute>
                                 </xsl:if>
                                 <td class="containerHeaderTitle">
@@ -2149,7 +2147,8 @@
                                 <xsl:otherwise>
                                     <xsl:choose>
                                         <xsl:when test="$container != $sibContainer">
-                                            <tr class="containerTypes" style="display:none;"> 
+                                           <!-- <tr class="containerTypes" style="display:none;">  -->
+                                           <tr class="containerTypes" style="display:none;">
                                                     <td class="containerHeaderTitle" >
                                                         <xsl:attribute name="colspan">
                                                             <xsl:choose>
