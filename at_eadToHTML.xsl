@@ -1880,6 +1880,7 @@
 <!-- reads major heading and prints major info -->
                             <xsl:otherwise>
                                 <td colspan="5" class="{$clevelMargin}">
+
                                     <xsl:call-template name="anchor"/>
                                     <xsl:apply-templates select="ead:did" mode="dsc"/>
                                     <div class="seriesNote">
@@ -1891,10 +1892,40 @@
                                                 </xsl:for-each>
                                             </xsl:if>
                                     <xsl:apply-templates select="child::*[not(ead:did) and not(self::ead:did) and not(self::ead:dao)]"/></div>
+
                                 </td>
                             </xsl:otherwise>
                         </xsl:choose>
                     </tr>
+<xsl:choose>
+    <xsl:when test="ead:did/ead:container" />
+    <xsl:otherwise>
+        
+ <tr class="containerTypes"> 
+                                        <td class="containerHeaderTitle">
+                                            <xsl:attribute name="colspan">
+                                                <xsl:choose>
+                                                    <xsl:when test="count(ead:did[ead:container][1]/ead:container) = 1">4</xsl:when>
+                                                    <xsl:otherwise>3</xsl:otherwise>
+                                                </xsl:choose>
+                                            </xsl:attribute>
+                                           <xsl:text></xsl:text>
+                                        </td>
+                                        <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
+                                        <xsl:variable name="container2" select="child::*[@level][1]/ead:did/ead:container[string(@parent) = string($container1/@id)]"/>
+                                        <td class="containerHeader">
+                                            <xsl:value-of select="string($container1/@type)"/>
+                                        </td>
+                                        <td class="containerHeader">
+                                            <xsl:value-of select="string($container2/@type)"/>
+                                        </td>
+                                    </tr> 
+
+                                </xsl:otherwise>
+
+
+</xsl:choose>
+
                     <xsl:if test="ead:did[ead:container][1]/ead:container[position() &gt; 2]">
                         <!-- 7/14/11 WS: added choose statement to deal appropriately with multiple instances -->
                         <xsl:for-each select="ead:did[ead:container][1]/ead:container[@id][position() &gt;= 2]">
@@ -2004,7 +2035,7 @@
                             <tr class="containerTypes"> 
                                 <xsl:if test="count(../../preceding-sibling::*) + 1 &gt; 2">
                                 <xsl:attribute name="style">
-                               <!-- <xsl:text>display:none;</xsl:text> -->
+                               <xsl:text>display:none;</xsl:text>
                                 </xsl:attribute>
                                 </xsl:if>
                                 <td class="containerHeaderTitle">
