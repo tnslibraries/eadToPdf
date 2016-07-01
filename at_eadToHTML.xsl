@@ -1791,7 +1791,7 @@
                                         <xsl:otherwise>3</xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:attribute>
-                               <xsl:text>Test 1</xsl:text>
+                               <xsl:text></xsl:text>
                             </td>
                             <xsl:choose>
                                 <xsl:when test="count(ead:did/ead:container) = 1">
@@ -1900,10 +1900,9 @@
 <xsl:choose>
     <xsl:when test="ead:did/ead:container" />
 
-<!-- when first child is a subseries -->
-  <!-- <xsl:when test="" /> -->
+    <xsl:when test="@level = 'series' and child::ead:node()[starts-with(name(),'c')][1][@level='subseries']" /> 
 
-
+    <!-- when first child is a subseries -->
 
     <xsl:otherwise>
 
@@ -1916,7 +1915,8 @@
                                                     <xsl:otherwise>3</xsl:otherwise>
                                                 </xsl:choose>
                                             </xsl:attribute>
-                                           <xsl:text>Test 2</xsl:text>
+
+                                           <xsl:text></xsl:text>
                                         </td>
                                         <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
                                         <xsl:variable name="container2" select="child::*[@level][1]/ead:did/ead:container[string(@parent) = string($container1/@id)]"/>
@@ -1928,7 +1928,7 @@
                                         </td>
                                     </tr> 
 
-                                </xsl:otherwise>
+</xsl:otherwise>
 
 
 </xsl:choose>
@@ -1970,7 +1970,7 @@
                                                     <xsl:otherwise>3</xsl:otherwise>
                                                 </xsl:choose>
                                             </xsl:attribute>
-                                           <xsl:text>Test 3</xsl:text>
+                                           <xsl:text></xsl:text>
                                         </td>
                                         <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
                                         <xsl:variable name="container2" select="child::*[@level][1]/ead:did/ead:container[string(@parent) = string($container1/@id)]"/>
@@ -1992,7 +1992,7 @@
                                                 </xsl:choose>
                                             </xsl:attribute>
                                             <!--  <xsl:text>Title</xsl:text> -->
-                                            <xsl:text>Test 4</xsl:text>
+                                            <xsl:text></xsl:text>
                                         </td>
                                         <xsl:choose>
                                             <xsl:when test="child::*[ead:did/ead:container/@label][1]">
@@ -2053,7 +2053,7 @@
                                         </xsl:choose>
                                     </xsl:attribute>
                                     <!--  <xsl:text>Title</xsl:text> -->
-                                    <xsl:text>Test 5</xsl:text>
+                                    <xsl:text></xsl:text>
                                 </td>
                                 <xsl:choose>
                                     <xsl:when test="count(../ead:container) &gt; 1">
@@ -2159,7 +2159,7 @@
                                                         </xsl:choose>
                                                     </xsl:attribute>
                                                 <!--  <xsl:text>Title</xsl:text> -->
-                                                    <xsl:text>Test 6</xsl:text>
+                                                    <xsl:text></xsl:text>
                                                 </td>
                                                 <xsl:choose>
                                                     <xsl:when test="ead:did/ead:container[1]">
@@ -2198,7 +2198,7 @@
                                                         <xsl:text>vertical-align:top;</xsl:text>
                                                         </xsl:attribute>    
                                                        <!-- <xsl:text>Title </xsl:text> -->
-                                                        <xsl:text>Test 7</xsl:text>
+                                                        <xsl:text></xsl:text>
                                                     </td>
                                                     <xsl:for-each select="ead:did/ead:container">     
                                                         <td class="containerHeader">    
