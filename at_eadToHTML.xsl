@@ -63,7 +63,6 @@
     <xsl:strip-space elements="*"/>
     <xsl:output indent="yes" method="html" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" encoding="utf-8"/>
     <xsl:include href="lookupLists.xsl"/>
-<!--    <xsl:include href="lookupLists.xsl"/>-->
     
     <xsl:variable name="id" select="/ead:ead/ead:archdesc/ead:did/ead:unitid"/>
     
@@ -1900,7 +1899,7 @@
 <xsl:choose>
     <xsl:when test="ead:did/ead:container" />
 
-    <xsl:when test="@level = 'series' and child::ead:node()[starts-with(name(),'c')][1][@level='subseries']" /> 
+  <!--  <xsl:when test="@level = 'series' and child::ead:node()[starts-with(name(),'c')][1][@level='subseries']" /> -->
 
     <!-- when first child is a subseries -->
 
@@ -1909,36 +1908,46 @@
 
  <tr class="containerTypes"> 
 
-    <xsl:attribute name="style">
-         <xsl:choose>
-         <xsl:when test="not(child::*[@level][1]/ead:did/ead:container[@label][1])">
-         display:none;
-         </xsl:when>
-          <xsl:otherwise />
-          </xsl:choose>
-         </xsl:attribute>
+    <xsl:if test="@level = 'series' and ead:*[starts-with(name(),'c')][1][@level='subseries']">
+        <xsl:attribute name="style">
+            display:none;
+        </xsl:attribute>
+
+    </xsl:if>
   
-                <td class="containerHeaderTitle">
-                                            <xsl:attribute name="colspan">
-                                                <xsl:choose>
-                                                    <xsl:when test="count(ead:did[ead:container][1]/ead:container) = 1">4</xsl:when>
-                                                    <xsl:otherwise>3</xsl:otherwise>
-                                                </xsl:choose>
-                                            </xsl:attribute>
-
-                                           <xsl:text></xsl:text>
-                                        </td>
-                                        <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
-                                        <xsl:variable name="container2" select="child::*[@level][1]/ead:did/ead:container[string(@parent) = string($container1/@id)]"/>
-                                        <td class="containerHeader">
-                                            <xsl:value-of select="string($container1/@type)"/>
-                                        </td>
-                                        <td class="containerHeader">
-                                            <xsl:value-of select="string($container2/@type)"/>
-                                        </td>
-                                    </tr> 
+        <td class="containerHeaderTitle">
+                <xsl:attribute name="colspan">
+                        <xsl:choose>
+                            <xsl:when test="count(ead:did[ead:container][1]/ead:container) = 1">4</xsl:when>
+                            <xsl:otherwise>3</xsl:otherwise>
+                        </xsl:choose>
+                </xsl:attribute>
+                <xsl:text></xsl:text>
+        </td>
+            <xsl:variable name="container1" select="child::*[@level][1]/ead:did/ead:container[@label][1]"/>
+            <xsl:variable name="container2" select="child::*[@level][1]/ead:did/ead:container[string(@parent) = string($container1/@id)]"/>
+        <td class="containerHeader">
+            <xsl:choose>
+                <xsl:when test="child::*[@level][1]/ead:did/ead:container[@label][1]">
+                    <xsl:value-of select="string($container1/@type)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Box</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </td>
+        <td class="containerHeader">
+            <xsl:choose>
+                <xsl:when test="child::*[@level][1]/ead:did/ead:container[@label][1]">                                      
+                    <xsl:value-of select="string($container2/@type)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Folder</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>                                            
+        </td>
+    </tr> 
 </xsl:otherwise>
-
 
 </xsl:choose>
 
