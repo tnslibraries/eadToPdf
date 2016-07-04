@@ -1908,6 +1908,16 @@
 
 
  <tr class="containerTypes"> 
+
+    <xsl:attribute name="style">
+         <xsl:choose>
+         <xsl:when test="not(child::*[@level][1]/ead:did/ead:container[@label][1])">
+         display:none;
+         </xsl:when>
+          <xsl:otherwise />
+          </xsl:choose>
+         </xsl:attribute>
+  
                 <td class="containerHeaderTitle">
                                             <xsl:attribute name="colspan">
                                                 <xsl:choose>
@@ -1927,7 +1937,6 @@
                                             <xsl:value-of select="string($container2/@type)"/>
                                         </td>
                                     </tr> 
-
 </xsl:otherwise>
 
 
