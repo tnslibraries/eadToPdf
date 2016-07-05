@@ -1914,7 +1914,7 @@
 
     </xsl:if>
 
-        <xsl:if test="@level = 'subseries' and ead:*[starts-with(name(),'c')][1][@level='series']">
+     <xsl:if test="@level = 'subseries' and ead:*[starts-with(name(),'c')][1][@level='series']">
         <xsl:attribute name="style">
             display:none;
         </xsl:attribute>
