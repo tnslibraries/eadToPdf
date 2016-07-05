@@ -1897,9 +1897,8 @@
                         </xsl:choose>
                     </tr>
 <xsl:choose>
-    <xsl:when test="ead:did/ead:container" />
 
-  <!--  <xsl:when test="@level = 'series' and child::ead:node()[starts-with(name(),'c')][1][@level='subseries']" /> -->
+    <xsl:when test="ead:did/ead:container" />
 
     <!-- when first child is a subseries -->
 
@@ -1909,6 +1908,13 @@
  <tr class="containerTypes"> 
 
     <xsl:if test="@level = 'series' and ead:*[starts-with(name(),'c')][1][@level='subseries']">
+        <xsl:attribute name="style">
+            display:none;
+        </xsl:attribute>
+
+    </xsl:if>
+
+        <xsl:if test="@level = 'subseries' and ead:*[starts-with(name(),'c')][1][@level='series']">
         <xsl:attribute name="style">
             display:none;
         </xsl:attribute>
