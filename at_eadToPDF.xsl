@@ -5,7 +5,7 @@
     <!--
         *******************************************************************
         *                                                                 *
-        * VERSION:          1.06                                          *
+        * VERSION:          2.00                                          *
         *                                                                 *
         * AUTHOR:           Allen Jones                                   *
         *                   jonesa@newschool.edu                          *
