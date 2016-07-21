@@ -599,7 +599,7 @@
             <xsl:apply-templates select="ead:physdesc"/>        
             <xsl:apply-templates select="ead:physloc"/>        
            <!-- <xsl:if test="ead:langmaterial/ead:language[@langcode != 'eng']"> -->
-           <xsl:apply-templates select="ead:langmaterial[@label = 'Language of Materials note']"/>
+           <xsl:apply-templates select="ead:langmaterial[@label = 'Language of Materials']"/>
            <!-- </xsl:if> -->
             <xsl:apply-templates select="ead:materialspec"/>
             <xsl:apply-templates select="ead:container"/>
