@@ -777,7 +777,7 @@
     <!-- Named template for a generic p element with a link back to the table of contents  -->
     <xsl:template name="returnTOC">    
         <fo:block font-size="11pt" space-before="8pt" space-after="4pt" color="#FF5721">
-            <fo:basic-link text-decoration="none" internal-destination="toc">Return to Table of Contents »</fo:basic-link>
+            <fo:basic-link text-decoration="none" internal-destination="toc">Return to Table of Contents Â»</fo:basic-link>
         </fo:block>        
     </xsl:template>
     
@@ -884,7 +884,7 @@
                     <xsl:apply-templates select="ead:unitdate"/>
                     <xsl:apply-templates select="ead:physdesc"/>
                     <xsl:apply-templates select="ead:physloc"/>
-                    <xsl:apply-templates select="ead:langmaterial[@label = 'Language of Materials note']"/>
+                    <xsl:apply-templates select="ead:langmaterial[@label = 'Language of Materials']"/>
                     <xsl:apply-templates select="ead:materialspec"/>
                     <xsl:apply-templates select="ead:container"/>
                     <xsl:apply-templates select="ead:abstract"/>
@@ -900,7 +900,7 @@
     <xsl:template
         match="ead:archdesc/ead:did/ead:repository | ead:archdesc/ead:did/ead:unittitle | ead:archdesc/ead:did/ead:unitid | ead:archdesc/ead:did/ead:origination 
         | ead:archdesc/ead:did/ead:unitdate | ead:archdesc/ead:did/ead:physdesc | ead:archdesc/ead:did/ead:physloc 
-        | ead:archdesc/ead:did/ead:abstract | ead:archdesc/ead:did/ead:langmaterial[@label = 'Language of Materials note'] | ead:archdesc/ead:did/ead:materialspec | ead:archdesc/ead:did/ead:container">
+        | ead:archdesc/ead:did/ead:abstract | ead:archdesc/ead:did/ead:langmaterial[@label = 'Language of Materials'] | ead:archdesc/ead:did/ead:materialspec | ead:archdesc/ead:did/ead:container">
         <fo:table-row>
             <fo:table-cell padding-bottom="18pt">
                 <fo:block font-size="12pt" font-weight="bold" color="#111">
@@ -945,7 +945,7 @@
                                 <xsl:when test="self::ead:physdesc">Extent</xsl:when>
                                 <xsl:when test="self::ead:abstract">Summary</xsl:when>
                                 <xsl:when test="self::ead:physloc">Location</xsl:when>
-                                <xsl:when test="self::ead:langmaterial[@label = 'Language of Materials note']">Language</xsl:when>
+                                <xsl:when test="self::ead:langmaterial[@label = 'Language of Materials']">Language</xsl:when>
                                 <xsl:when test="self::ead:materialspec">Technical</xsl:when>
                                 <xsl:when test="self::ead:container">Container</xsl:when>
                                 <xsl:when test="self::ead:note">Note</xsl:when>
