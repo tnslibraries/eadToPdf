@@ -900,7 +900,7 @@
     <xsl:template
         match="ead:archdesc/ead:did/ead:repository | ead:archdesc/ead:did/ead:unittitle | ead:archdesc/ead:did/ead:unitid | ead:archdesc/ead:did/ead:origination 
         | ead:archdesc/ead:did/ead:unitdate | ead:archdesc/ead:did/ead:physdesc | ead:archdesc/ead:did/ead:physloc 
-        | ead:archdesc/ead:did/ead:abstract | ead:archdesc/ead:did/ead:langmaterial[@label = 'Language of Materials'] | ead:archdesc/ead:did/ead:materialspec | ead:archdesc/ead:did/ead:container">
+        | ead:archdesc/ead:did/ead:abstract | ead:archdesc/ead:did/ead:langmaterial | ead:archdesc/ead:did/ead:materialspec | ead:archdesc/ead:did/ead:container">
         <fo:table-row>
             <fo:table-cell padding-bottom="18pt">
                 <fo:block font-size="12pt" font-weight="bold" color="#111">
