@@ -115,15 +115,14 @@
                             <h3 id="adminInfo">Administrative Information</h3>
                            <xsl:if test="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author">
                                 <div class="margin-bottom">
-                                <xsl:value-of select="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author"/>
-                                   <!-- <xsl:variable name="myAuthor">
+                                   <xsl:variable name="myAuthor">
                                         <xsl:call-template name="string-replace-all">
                                             <xsl:with-param name="text" select="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author"/>
-                                            <xsl:with-param name="replace" select="'Finding aid prepared'" />
-                                            <xsl:with-param name="by" select="'Collection guide written'" />
+                                            <xsl:with-param name="replace" select="'Finding aid prepared by '" />
+                                            <xsl:with-param name="by" select="''" />
                                         </xsl:call-template>
                                     </xsl:variable>  
-                                    <xsl:value-of select="$myAuthor"/> -->
+                                    <xsl:value-of select="$myAuthor"/> 
 
                                 </div>                
                             </xsl:if>
