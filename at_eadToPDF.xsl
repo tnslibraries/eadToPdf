@@ -803,16 +803,16 @@
             /ead:ead/ead:archdesc/ead:originalsloc | /ead:ead/ead:eadheader/ead:filedesc/ead:publicationstmt | /ead:ead/ead:eadheader/ead:revisiondesc">
             <fo:block font-size="16pt" space-before="18pt" space-after="4pt"
                 font-weight="bold" color="black" margin-left="-8pt" padding-after="6pt" padding-before="12pt" border-bottom="1pt dashed #666" border-top="2pt solid #000" id="adminInfo"> Administrative Information </fo:block>
-           <!-- <xsl:if test="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author">
+           <xsl:if test="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author">
                 <fo:block font-size="12pt" >
-                    <xsl:variable name="myAuthor">
+                   <xsl:variable name="myAuthor">
                         <xsl:call-template name="string-replace-all">
                             <xsl:with-param name="text" select="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:author"/>
-                            <xsl:with-param name="replace" select="'Finding aid prepared'" />
-                            <xsl:with-param name="by" select="'Collection guide written'" />
+                            <xsl:with-param name="replace" select="'Finding aid prepared by '" />
+                            <xsl:with-param name="by" select="''" />
                         </xsl:call-template>
                     </xsl:variable>  
-                    <xsl:value-of select="$myAuthor"/>
+                    <xsl:value-of select="$myAuthor"/> 
                 </fo:block>                
             </xsl:if> -->
             <xsl:apply-templates select="/ead:ead/ead:eadheader/ead:filedesc/ead:publicationstmt" mode="admin"/>
