@@ -513,8 +513,8 @@
             <hr />
             <dl>
 
-            <xsl:if test="starts-with(/ead:ead/ead:archdesc/ead:altformavail/ead:p/ead:extref/@ns2:href,'http://digitalarchives')">    
-            <dd><a href="{/ead:ead/ead:archdesc/ead:altformavail/ead:p/ead:extref/@ns2:href}">
+            <xsl:if test="starts-with(/ead:ead/ead:archdesc/ead:otherfindaid/ead:p/ead:extref/@ns2:href,'http://digitalarchives')">    
+            <dd><a href="{/ead:ead/ead:archdesc/ead:otherfindaid/ead:p/ead:extref/@ns2:href}">
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
                 Digital materials <i class="fa fa-external-link">&#160;</i></a>
             </dd>
