@@ -599,9 +599,7 @@
 
             <xsl:apply-templates select="ead:physdesc"/>        
             <xsl:apply-templates select="ead:physloc"/>        
-           <!-- <xsl:if test="ead:langmaterial/ead:language[@langcode != 'eng']"> -->
-           <xsl:apply-templates select="ead:langmaterial[@label = 'Language of Materials note']"/>
-           <!-- </xsl:if> -->
+           <xsl:apply-templates select="ead:langmaterial"/>
             <xsl:apply-templates select="ead:materialspec"/>
             <xsl:apply-templates select="ead:container"/>
             <xsl:apply-templates select="ead:abstract"/> 
@@ -635,8 +633,6 @@
                             <xsl:otherwise/>
                         </xsl:choose>
                     </xsl:if>
-                    <xsl:if test="ead:langmaterial/ead:language">
-                    </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:choose>
@@ -661,7 +657,7 @@
                         <xsl:when test="self::ead:physdesc">Extent</xsl:when>
                         <xsl:when test="self::ead:abstract">Summary</xsl:when>
                         <xsl:when test="self::ead:physloc">Location</xsl:when>
-                        <xsl:when test="self::ead:langmaterial">Language</xsl:when>
+                        <xsl:when test="self::ead:langmaterial[@label='Language of Materials']">Language</xsl:when>
                         <xsl:when test="self::ead:materialspec">Technical</xsl:when>
                         <xsl:when test="self::ead:container">Container</xsl:when>
                         <xsl:when test="self::ead:note">Note</xsl:when>
