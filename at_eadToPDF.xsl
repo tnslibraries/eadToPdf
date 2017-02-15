@@ -777,7 +777,7 @@
     <!-- Named template for a generic p element with a link back to the table of contents  -->
     <xsl:template name="returnTOC">    
         <fo:block font-size="11pt" space-before="8pt" space-after="4pt" color="#FF5721">
-            <fo:basic-link text-decoration="none" internal-destination="toc">Return to Table of Contents »</fo:basic-link>
+            <fo:basic-link text-decoration="none" internal-destination="toc">Return to Table of Contents &#187;</fo:basic-link>
         </fo:block>        
     </xsl:template>
     
