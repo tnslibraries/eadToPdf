@@ -196,10 +196,10 @@
 
     <!-- CSS for styling HTML output. Place all CSS styles in this template.-->
     <xsl:template name="css">
-        <link rel="icon" href="http://library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
-        <link rel="stylesheet" href="http://library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
-        <link rel="stylesheet" media="screen" type="text/css" href="http://library.newschool.edu/archives/assets/css/at_branding.css" />
-        <link type="text/css" media="print" rel="stylesheet" href="http://library.newschool.edu/archives/assets/css/at_print.css" />
+        <link rel="icon" href="//library.newschool.edu/assets/img/favicon.ico" type="image/ico" sizes="32x32" />
+        <link rel="stylesheet" href="//library.newschool.edu/assets/css/edu_ac.css" type="text/css" media="screen" />
+        <link rel="stylesheet" media="screen" type="text/css" href="//library.newschool.edu/archives/assets/css/at_branding.css" />
+        <link type="text/css" media="print" rel="stylesheet" href="//library.newschool.edu/archives/assets/css/at_print.css" />
 
     </xsl:template>
 
@@ -207,7 +207,7 @@
 
 <script src="//use.typekit.net/wnv5wjy.js">&#160;</script>
 <script>try{Typekit.load();}catch(e){}</script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js">&#160;</script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js">&#160;</script>
 <script src="scripts/jquery.js" type="text/javascript" >&#160;</script>
 <script type="text/javascript">
     <![CDATA[
@@ -519,7 +519,7 @@
                 Digital materials <i class="fa fa-external-link">&#160;</i></a>
             </dd>
 </xsl:if>
-            <dd><a class="pdflink"><xsl:attribute name="href">http://library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
+            <dd><a class="pdflink"><xsl:attribute name="href">//library.newschool.edu/archives/findingaids/pdf/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.pdf</xsl:attribute>
                 <!-- 7/6/11 WS: added /speccoll/kellen to link to pdf icon, icon was not showing up in display -->
                Printable version  <i class="fa fa-file-pdf-o">&#160;</i> </a></dd>
         <dd><a href="/archives/archives_contact.php">Click here to contact us <i class="fa fa-envelope-o">&#160;</i></a></dd>
@@ -541,7 +541,7 @@
         <!-- 7/7/11 WS: Added image code from commented out section to ead:header -->
           <xsl:choose>
               <xsl:when test="/ead:ead/ead:archdesc/ead:did/ead:head">
-                  <img border="0" style="padding-left:0px; padding-bottom:10px;padding-top:10px;"><xsl:attribute name="src">http://library.newschool.edu/archives/findingaids/images/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.jpg</xsl:attribute></img>
+                  <img border="0" style="padding-left:0px; padding-bottom:10px;padding-top:10px;"><xsl:attribute name="src">//library.newschool.edu/archives/findingaids/images/<xsl:value-of select="translate(/ead:ead/ead:archdesc/ead:did/ead:unitid,'.','')"/>.jpg</xsl:attribute></img>
                   <div>
                       <a href="#" class="showAll" style="border:1px solid #000; padding:.5em; font-weight:bold;color:blue">+ Expand all text to enable full keyword searching </a>
                   </div>
@@ -2412,7 +2412,7 @@
           <div class="bottom-stripe" id="stripe-2"><div class="bottom-stripe-inner">&#160;</div></div>
 
           <h1 class="sitename">
-<a href="http://library.newschool.edu">Libraries <span class="hide-for-small-only"><xsl:text disable-output-escaping="yes">&amp;</xsl:text> Archives</span><span class="show-for-small-only mobile-logo"><br /><xsl:text disable-output-escaping="yes">&amp;</xsl:text> Archives</span></a>
+<a href="//library.newschool.edu">Libraries <span class="hide-for-small-only"><xsl:text disable-output-escaping="yes">&amp;</xsl:text> Archives</span><span class="show-for-small-only mobile-logo"><br /><xsl:text disable-output-escaping="yes">&amp;</xsl:text> Archives</span></a>
 </h1>
 
   </div>
@@ -2426,9 +2426,9 @@
      <div class="inner-wrapper" id="">
         <ul class="breadcrumbs"> 
           <!-- RENDER BREADCRUMBS HERE --> 
-          <li><a href="http://library.newschool.edu" title="The New School Libraries">Home</a></li>
-          <li><a href="http://library.newschool.edu/archives/index.php" title="Archives">Archives <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Special Collections</a></li>
-          <li class=""><a href="http://library.newschool.edu/archives/browse_collections.php">Browse the Collections</a></li>
+          <li><a href="//library.newschool.edu" title="The New School Libraries">Home</a></li>
+          <li><a href="//library.newschool.edu/archives/index.php" title="Archives">Archives <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Special Collections</a></li>
+          <li class=""><a href="//library.newschool.edu/archives/browse_collections.php">Browse the Collections</a></li>
           <li class="unavailable">
           <a href="">Collection Guide</a></li>
 
@@ -2446,7 +2446,7 @@
           <xsl:template name="footer">
 <div id="footer-wrapper"><div id="universal_footer_interim"></div></div>
 <script type="text/javascript">
-    $.getJSON( "http://www.newschool.edu/php/footer.php?v=absolute<xsl:text disable-output-escaping="yes">&amp;</xsl:text>callback=?", function(data) {
+    $.getJSON( "//www.newschool.edu/php/footer.php?v=absolute<xsl:text disable-output-escaping="yes">&amp;</xsl:text>callback=?", function(data) {
           $("#footer-wrapper").html(data.html);
       });
 </script> 
